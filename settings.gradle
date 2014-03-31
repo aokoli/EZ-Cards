@@ -1,0 +1,2 @@
+include ':EZCardsApp'
+include ':libraries:tess-two'
