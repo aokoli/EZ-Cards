@@ -7,10 +7,10 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/EZCardsApp" />
-            <option value="$PROJECT_DIR$/libraries" />
-            <option value="$PROJECT_DIR$/libraries/tess-two" />
+            <option value="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards" />
+            <option value="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\EZCardsApp" />
+            <option value="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries" />
+            <option value="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries\tess-two" />
           </set>
         </option>
       </GradleProjectSettings>

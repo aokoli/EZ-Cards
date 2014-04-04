@@ -2,12 +2,12 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsII\EZCards\libraries\tess-two\res" />
-        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsII\EZCards\libraries\tess-two\build\res\rs\debug" />
-        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsII\EZCards\libraries\tess-two\build\res\generated\debug" />
+        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries\tess-two\res" />
+        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries\tess-two\build\res\rs\debug" />
+        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries\tess-two\build\res\generated\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsII\EZCards\libraries\tess-two\build-types\debug\res" />
+        <source path="C:\Users\cbijayananda.TOYODA\Desktop\EZCardsV\EZ-Cards\libraries\tess-two\build-types\debug\res" />
     </dataSet>
 
 </merger>
