@@ -1,4 +1,4 @@
 EZ-Cards
 ========
 
-See Install.txt 
+[Install] (install.md)
