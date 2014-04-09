@@ -1,4 +1,4 @@
-package com.loyola.ezcards.ezcardsapp.util;
+package com.loyola.ezcards.ezcardsapp.util.util;
 
 import android.app.Activity;
 import android.os.Build;
@@ -12,9 +12,9 @@ import android.view.View;
  * Creating Backward-Compatible UIs</a> to ensure that devices running any
  * version of ndroid OS are supported. More specifically, there are separate
  * implementations of this abstract class: for newer devices,
- * {@link #getInstance} will return a {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHiderHoneycomb} instance,
+ * {@link #getInstance} will return a {@link SystemUiHiderHoneycomb} instance,
  * while on older devices {@link #getInstance} will return a
- * {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHiderBase} instance.
+ * {@link SystemUiHiderBase} instance.
  * <p>
  * For more on system bars, see <a href=
  * "http://developer.android.com/design/get-started/ui-overview.html#system-bars"
@@ -78,9 +78,9 @@ public abstract class SystemUiHider {
     protected OnVisibilityChangeListener mOnVisibilityChangeListener = sDummyListener;
 
     /**
-     * Creates and returns an instance of {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHider} that is
+     * Creates and returns an instance of {@link com.loyola.ezcards.ezcardsapp.util.util.SystemUiHider} that is
      * appropriate for this device. The object will be either a
-     * {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHiderBase} or {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHiderHoneycomb} depending on
+     * {@link SystemUiHiderBase} or {@link SystemUiHiderHoneycomb} depending on
      * the device.
      * 
      * @param activity The activity whose window's system UI should be

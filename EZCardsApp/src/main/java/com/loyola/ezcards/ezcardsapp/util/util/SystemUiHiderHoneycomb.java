@@ -1,4 +1,4 @@
-package com.loyola.ezcards.ezcardsapp.util;
+package com.loyola.ezcards.ezcardsapp.util.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 /**
- * An API 11+ implementation of {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHider}. Uses APIs available in
+ * An API 11+ implementation of {@link com.loyola.ezcards.ezcardsapp.util.util.SystemUiHider}. Uses APIs available in
  * Honeycomb and later (specifically {@link android.view.View#setSystemUiVisibility(int)}) to
  * show and hide the system UI.
  */
@@ -40,7 +40,7 @@ public class SystemUiHiderHoneycomb extends SystemUiHiderBase {
 
     /**
      * Constructor not intended to be called by clients. Use
-     * {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHider#getInstance} to obtain an instance.
+     * {@link com.loyola.ezcards.ezcardsapp.util.util.SystemUiHider#getInstance} to obtain an instance.
      */
     protected SystemUiHiderHoneycomb(Activity activity, View anchorView, int flags) {
         super(activity, anchorView, flags);

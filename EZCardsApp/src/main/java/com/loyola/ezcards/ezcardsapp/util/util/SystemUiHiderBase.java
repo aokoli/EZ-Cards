@@ -1,11 +1,11 @@
-package com.loyola.ezcards.ezcardsapp.util;
+package com.loyola.ezcards.ezcardsapp.util.util;
 
 import android.app.Activity;
 import android.view.View;
 import android.view.WindowManager;
 
 /**
- * A base implementation of {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHider}. Uses APIs available in all
+ * A base implementation of {@link com.loyola.ezcards.ezcardsapp.util.util.SystemUiHider}. Uses APIs available in all
  * API levels to show and hide the status bar.
  */
 public class SystemUiHiderBase extends SystemUiHider {
@@ -17,7 +17,7 @@ public class SystemUiHiderBase extends SystemUiHider {
 
     /**
      * Constructor not intended to be called by clients. Use
-     * {@link com.loyola.ezcards.ezcardsapp.util.SystemUiHider#getInstance} to obtain an instance.
+     * {@link com.loyola.ezcards.ezcardsapp.util.util.SystemUiHider#getInstance} to obtain an instance.
      */
     protected SystemUiHiderBase(Activity activity, View anchorView, int flags) {
         super(activity, anchorView, flags);
