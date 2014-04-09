@@ -100,7 +100,7 @@ public class OCRServiceActivity extends Activity {
         }
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.capturecard);
 
         // _image = (ImageView) findViewById(R.id.image);
         _field = (EditText) findViewById(R.id.field);
