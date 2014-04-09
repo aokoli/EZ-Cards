@@ -2,4 +2,4 @@ EZ-Cards
 ========
 
 ##Install
-[Install] (install.md)
+[Install] (https://github.com/X8462/EZ-Cards/blob/master/Install.md)
