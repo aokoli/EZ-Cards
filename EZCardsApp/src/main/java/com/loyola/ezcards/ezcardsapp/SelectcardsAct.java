@@ -8,7 +8,7 @@ public class SelectcardsAct extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.capturecard);
+        setContentView(R.layout.cardcapture);
     }
 
 

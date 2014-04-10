@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/Users/newbuyer/Desktop/test4/EZ-Cards/libraries/tess-two/assets" />
+        <source path="/Users/alshaymaaalhazzaa/Desktop/OCR/EZ-CardsII/EZ-Cards/libraries/tess-two/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/newbuyer/Desktop/test4/EZ-Cards/libraries/tess-two/build-types/debug/assets" />
+        <source path="/Users/alshaymaaalhazzaa/Desktop/OCR/EZ-CardsII/EZ-Cards/libraries/tess-two/build-types/debug/assets" />
     </dataSet>
 
 </merger>

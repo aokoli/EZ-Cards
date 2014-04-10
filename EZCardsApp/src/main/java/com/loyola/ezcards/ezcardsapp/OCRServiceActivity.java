@@ -214,7 +214,7 @@ public class OCRServiceActivity extends Activity {
         String recognizedText = baseApi.getUTF8Text();
 
         baseApi.end();
-        setContentView(R.layout.capturecard);
+        setContentView(R.layout.cardcapture);
         _image = (ImageView) findViewById(R.id.imgPreview);
         phoneField = (EditText) findViewById(R.id.editText3);
         emailField = (EditText) findViewById(R.id.editText8);
