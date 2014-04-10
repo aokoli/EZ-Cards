@@ -19,7 +19,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:text="First Name"
@@ -29,7 +29,7 @@
             android:layout_alignParentStart="true" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:text="Last Name"
@@ -39,7 +39,7 @@
             android:layout_alignParentStart="true" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:text="Company"
@@ -49,7 +49,7 @@
             android:layout_alignParentStart="true" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
@@ -57,11 +57,10 @@
             android:layout_below="@+id/editText3"
             android:layout_alignRight="@+id/editText3"
             android:layout_alignEnd="@+id/editText3"
-            android:layout_marginRight="36dp"
             android:layout_marginTop="46dp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
@@ -98,7 +97,7 @@
             android:paddingTop="20dp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
@@ -120,7 +119,7 @@
             android:paddingTop="20dp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
@@ -128,7 +127,7 @@
             android:layout_below="@+id/textView3"
             android:layout_alignRight="@+id/editText5" />
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Address"
             android:id="@+id/textView4"
@@ -140,8 +139,8 @@
             android:paddingTop="20dp" />
 
         <EditText
-            android:layout_width="300dp"
-            android:layout_height="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:inputType="textPostalAddress"
             android:ems="10"
             android:id="@+id/editText7"
@@ -153,25 +152,23 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
             android:id="@+id/button"
             android:layout_below="@+id/editText7"
             android:layout_alignLeft="@+id/editText7"
             android:layout_alignStart="@+id/editText7"
-            android:layout_marginBottom="65dp"
             android:textSize="20dp"/>
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Discard"
             android:id="@+id/button2"
             android:textSize="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/editText8" />
-
+            android:layout_toRightOf="@+id/button"
+            android:layout_alignBottom="@+id/button"/>
 
     </RelativeLayout>
     </LinearLayout>
