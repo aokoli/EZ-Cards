@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EZ-Cards.iml" filepath="$PROJECT_DIR$/EZ-Cards.iml" />
-      <module fileurl="file://$PROJECT_DIR$/EZCards.iml" filepath="$PROJECT_DIR$/EZCards.iml" />
       <module fileurl="file://$PROJECT_DIR$/EZCardsApp/EZCardsApp.iml" filepath="$PROJECT_DIR$/EZCardsApp/EZCardsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/tess-two/tess-two.iml" filepath="$PROJECT_DIR$/libraries/tess-two/tess-two.iml" />
     </modules>
