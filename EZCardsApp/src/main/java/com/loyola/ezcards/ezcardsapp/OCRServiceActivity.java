@@ -216,9 +216,9 @@ public class OCRServiceActivity extends Activity {
         baseApi.end();
         setContentView(R.layout.cardcapture);
         _image = (ImageView) findViewById(R.id.imgPreview);
-        phoneField = (EditText) findViewById(R.id.editText3);
-        emailField = (EditText) findViewById(R.id.editText8);
-        _field = (EditText) findViewById(R.id.editText7);
+        phoneField = (EditText) findViewById(R.id.PhoneMain);
+        emailField = (EditText) findViewById(R.id.email);
+        _field = (EditText) findViewById(R.id.addressT);
         _image.setImageBitmap(bitmap);
 
         // You now have the text in recognizedText var, you can do anything with it.
