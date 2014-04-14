@@ -1,16 +1,13 @@
 package com.loyola.ezcards.ezcardsapp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/**
- * Created by newbuyer on 4/9/14.
- */
+
+import java.util.ArrayList;
+
 public class DatabaseHandler extends SQLiteOpenHelper{
 
     // All Static variables
@@ -85,8 +82,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
 
     // Getting All Contacts
-    public List<Contact> getAllContacts() {
-        List<Contact> contactList = new ArrayList<Contact>();
+    public ArrayList<Contact> getAllContacts() {
+        ArrayList<Contact> contactList = new ArrayList<Contact>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 

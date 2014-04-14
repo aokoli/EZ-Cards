@@ -41,4 +41,17 @@
         android:iconifiedByDefault="false"
         android:layout_toRightOf="@+id/imageView"/>
 
+    <ListView
+
+        android:id="@+id/lv_custom_list"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp" >
+
+    </ListView>
+
+
 </LinearLayout>
