@@ -32,7 +32,7 @@ at Google since then.</simpara>
 </term>
 <listitem>
 <simpara>
-        The name of the input image.  Most image file formats (anything
+        The firstName of the input image.  Most image file formats (anything
         readable by Leptonica) are supported.
 </simpara>
 </listitem>
@@ -97,7 +97,7 @@ at Google since then.</simpara>
 </term>
 <listitem>
 <simpara>
-        The name of a config to use. A config is a plaintext file which
+        The firstName of a config to use. A config is a plaintext file which
         contains a list of variables and their values, one per line, with a
         space separating variable from value.  Interesting config files
         include:<?asciidoc-br?>

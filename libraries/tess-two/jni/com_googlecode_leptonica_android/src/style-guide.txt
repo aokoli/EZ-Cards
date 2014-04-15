@@ -60,7 +60,7 @@ The C code in leptonica follows these conventions:
        {
 
    (d) Function arguments and local variables line up vertically;
-       allow at least 2 spaces between type and variable name (including '*')
+       allow at least 2 spaces between type and variable firstName (including '*')
 
        function(PIX        *pixs,
                 l_int32     factor,
@@ -119,7 +119,7 @@ The C code in leptonica follows these conventions:
    (a) Function names begin with lower case and successive words have
        the first letter capitalized; e.g., boxIntersects().
 
-   (b) The first word in the function name is the name of the primary
+   (b) The first word in the function firstName is the firstName of the primary
        input data structure (if there is one).
 
    (c) Variable names are as short as possible, without causing confusion.
@@ -128,7 +128,7 @@ The C code in leptonica follows these conventions:
        struct, without a leading 'p'; e.g., pixt, boxt.
 
    (e) When ptrs are input to a function, in order to return a value,
-       if the local name would be 'ave', the pointer is 'pave'.
+       if the local firstName would be 'ave', the pointer is 'pave'.
 
    (f) Preprocessor variables and enums are named all caps,
        with '_' between parts.

@@ -55,7 +55,7 @@ experimental, and is not required (yet) for training Tesseract.</simpara>
 </term>
 <listitem>
 <simpara>
-        (Input) font properties file, where each line is of the following form, where each field other than the font name is 0 or 1:
+        (Input) font properties file, where each line is of the following form, where each field other than the font firstName is 0 or 1:
 </simpara>
 <literallayout class="monospaced">'font_name' 'italic' 'bold' 'fixed_pitch' 'serif' 'fraktur'</literallayout>
 </listitem>

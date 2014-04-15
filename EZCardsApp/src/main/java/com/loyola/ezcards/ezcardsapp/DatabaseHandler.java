@@ -57,8 +57,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName()); // Contact Name
-        values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
+        values.put(KEY_NAME, contact.getFirstName()); // Contact Name
+        values.put(KEY_PH_NO, contact.getPhoneMain()); // Contact Phone
 
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
@@ -94,9 +94,9 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         if (cursor.moveToFirst()) {
             do {
                 Contact contact = new Contact();
-                contact.setID(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setPhoneNumber(cursor.getString(2));
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setFirstName(cursor.getString(1));
+                contact.setPhoneMain(cursor.getString(2));
                 // Adding contact to list
                 contactList.add(contact);
             } while (cursor.moveToNext());
@@ -111,19 +111,19 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName());
-        values.put(KEY_PH_NO, contact.getPhoneNumber());
+        values.put(KEY_NAME, contact.getFirstName());
+        values.put(KEY_PH_NO, contact.getPhoneMain());
 
         // updating row
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getID()) });
+                new String[] { String.valueOf(contact.getId()) });
     }
 
     // Deleting single contact
     public void deleteContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getID()) });
+                new String[] { String.valueOf(contact.getId()) });
         db.close();
     }
 

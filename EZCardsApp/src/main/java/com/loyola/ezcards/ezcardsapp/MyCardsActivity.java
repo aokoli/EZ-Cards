@@ -7,10 +7,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * Created by alshaymaaalhazzaa on 4/4/14.
- */
-public class MycardsAct extends Activity {
+
+public class MyCardsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -24,15 +22,15 @@ public class MycardsAct extends Activity {
          * */
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
-        db.addContact(new Contact("Ravi", "91"));
-        db.addContact(new Contact("Srinivas", "99"));
-        db.addContact(new Contact("Tommy", "95"));
-        db.addContact(new Contact("Karthik", "93"));
+//        db.addContact(new Contact("Ravi", "91"));
+//        db.addContact(new Contact("Srinivas", "99"));
+//        db.addContact(new Contact("Tommy", "95"));
+//        db.addContact(new Contact("Karthik", "93"));
 
         // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..");
         ArrayList<Contact> contacts = db.getAllContacts();
-        ContactListAdapter adapter = new ContactListAdapter(MycardsAct.this, contacts);
+        ContactListAdapter adapter = new ContactListAdapter(MyCardsActivity.this, contacts);
         lvCustomList.setAdapter(adapter);
 
 //        lvCustomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

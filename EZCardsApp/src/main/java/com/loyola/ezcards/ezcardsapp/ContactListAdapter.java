@@ -50,9 +50,9 @@ public class ContactListAdapter extends BaseAdapter {
         }
 
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
-        tvName.setText(contactListItems.getName());
+        tvName.setText(contactListItems.getFirstName());
         TextView tvPhone = (TextView) convertView.findViewById(R.id.tv_phone);
-        tvPhone.setText(contactListItems.getPhoneNumber());
+        tvPhone.setText(contactListItems.getPhoneMain());
 
         return convertView;
     }

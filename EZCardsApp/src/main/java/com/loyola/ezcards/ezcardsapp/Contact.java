@@ -1,57 +1,80 @@
 package com.loyola.ezcards.ezcardsapp;
 
-/**
- * Created by newbuyer on 4/9/14.
- */
+
 public class Contact {
-    //private variables
-    int _id;
-    String _name;
-    String _phone_number;
 
-    // Empty constructor
-    public Contact(){
+    public Contact(){  }
 
-    }
-    // constructor
-    public Contact(int id, String name, String _phone_number){
-        this._id = id;
-        this._name = name;
-        this._phone_number = _phone_number;
+    //CB: Delete this constructor when test is complete!
+    public Contact(int id, String firstName, String phoneMain){
+        this.id = id;
+        this.firstName = firstName;
+        this.phoneMain = phoneMain;
     }
 
-    // constructor
-    public Contact(String name, String _phone_number){
-        this._name = name;
-        this._phone_number = _phone_number;
-    }
-    // getting ID
-    public int getID(){
-        return this._id;
-    }
+    public int getId(){ return id; }
 
-    // setting id
-    public void setID(int id){
-        this._id = id;
-    }
+    public void setId(int id){ this.id = id; }
 
-    // getting name
-    public String getName(){
-        return this._name;
-    }
+    public String getFirstName(){ return firstName; }
 
-    // setting name
-    public void setName(String name){
-        this._name = name;
-    }
+    public void setFirstName(String firstName){ this.firstName = firstName;  }
 
-    // getting phone number
-    public String getPhoneNumber(){
-        return this._phone_number;
-    }
+    public String getLastName(){ return lastName; }
 
-    // setting phone number
-    public void setPhoneNumber(String phone_number){
-        this._phone_number = phone_number;
-    }
+    public void setLastName(String lastName){ this.lastName = lastName;  }
+
+    public String getPhoneMain(){ return phoneMain; }
+
+    public void setPhoneMain(String phoneMain){ this.phoneMain = phoneMain; }
+
+    public String getPhoneCell(){ return phoneCell; }
+
+    public void setPhoneCell(String phoneCell){ this.phoneCell = phoneCell; }
+
+    public String getFax(){ return fax; }
+
+    public void setFax(String fax){ this.fax = fax; }
+
+    public String getEmail(){ return email; }
+
+    public void setEmail(String email){ this.email = email; }
+
+    public String getCompany1(){ return company1; }
+
+    public void setCompany1(String company1){ this.company1 = company1; }
+
+    public String getCompany2(){ return company2; }
+
+    public void setCompany2(String company2){ this.company2 = company2; }
+
+    public String getTitle(){ return title; }
+
+    public void setTitle(String title){ this.title = title; }
+
+    public String getAddress1(){ return address1; }
+
+    public void setAddress1(String address1){ this.address1 = address1; }
+
+    public String getAddress2(){ return address2; }
+
+    public void setAddress2(String address2){ this.address2 = address2; }
+
+    public String getImageLocation(){ return imageLocation; }
+
+    public void setImageLocation(String location) { this.imageLocation = location; }
+
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String phoneMain;
+    private String phoneCell;
+    private String fax;
+    private String email;
+    private String company1;
+    private String company2;
+    private String title;
+    private String address1;
+    private String address2;
+    private String imageLocation;
 }

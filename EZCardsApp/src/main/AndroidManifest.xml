@@ -25,12 +25,12 @@
             android:label="@string/title_activity_ocrservice" >
         </activity>
         <activity
-            android:name="com.loyola.ezcards.ezcardsapp.MycardsAct"
+            android:name=".MyCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_ocrservice" >
         </activity>
         <activity
-            android:name="com.loyola.ezcards.ezcardsapp.SelectcardsAct"
+            android:name=".SelectCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_mycards"  >
         </activity>

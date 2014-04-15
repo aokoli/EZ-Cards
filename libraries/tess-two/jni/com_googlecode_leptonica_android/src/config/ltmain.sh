@@ -129,7 +129,7 @@ $lt_unset CDPATH
 # Work around backward compatibility issue on IRIX 6.5. On IRIX 6.4+, sh
 # is ksh but when the shell is invoked as "sh" and the current value of
 # the _XPG environment variable is not equal to 1 (one), the special
-# positional parameter $0, within a function call, is the name of the
+# positional parameter $0, within a function call, is the firstName of the
 # function.
 progpath="$0"
 
@@ -206,12 +206,12 @@ func_dirname_and_basename ()
 } # func_dirname_and_basename may be replaced by extended shell implementation
 
 
-# func_stripname prefix suffix name
+# func_stripname prefix suffix firstName
 # strip PREFIX and SUFFIX off of NAME.
 # PREFIX and SUFFIX must not contain globbing or regex special
 # characters, hashes, percent signs, but SUFFIX may contain a leading
 # dot (in which case that matches only a dot).
-# func_strip_suffix prefix name
+# func_strip_suffix prefix firstName
 func_stripname ()
 {
     case ${2} in
@@ -362,14 +362,14 @@ func_relative_path ()
 
   # Normalisation. If bindir is libdir, return empty string,
   # else relative path ending with a slash; either way, target
-  # file name can be directly appended.
+  # file firstName can be directly appended.
   if test ! -z "$func_relative_path_result"; then
     func_stripname './' '' "$func_relative_path_result/"
     func_relative_path_result=$func_stripname_result
   fi
 }
 
-# The name of this program:
+# The firstName of this program:
 func_dirname_and_basename "$progpath"
 progname=$func_basename_result
 
@@ -406,7 +406,7 @@ double_quote_subst='s/\(["`\\]\)/\\\1/g'
 # string literally.
 sed_make_literal_regex='s,[].[^$\\*\/],\\&,g'
 
-# Sed substitution that converts a w32 file name or path
+# Sed substitution that converts a w32 file firstName or path
 # which contains forward slashes, into one that contains
 # (escaped) backslashes.  A very naive implementation.
 lt_sed_naive_backslashify='s|\\\\*|\\|g;s|/|\\|g;s|\\|\\\\|g'
@@ -435,15 +435,15 @@ opt_verbose=false
 opt_warning=:
 
 # func_echo arg...
-# Echo program name prefixed message, along with the current mode
-# name if it has been set yet.
+# Echo program firstName prefixed message, along with the current mode
+# firstName if it has been set yet.
 func_echo ()
 {
     $ECHO "$progname: ${opt_mode+$opt_mode: }$*"
 }
 
 # func_verbose arg...
-# Echo program name prefixed message in verbose mode only.
+# Echo program firstName prefixed message in verbose mode only.
 func_verbose ()
 {
     $opt_verbose && func_echo ${1+"$@"}
@@ -462,14 +462,14 @@ func_echo_all ()
 }
 
 # func_error arg...
-# Echo program name prefixed message to standard error.
+# Echo program firstName prefixed message to standard error.
 func_error ()
 {
     $ECHO "$progname: ${opt_mode+$opt_mode: }"${1+"$@"} 1>&2
 }
 
 # func_warning arg...
-# Echo program name prefixed warning message to standard error.
+# Echo program firstName prefixed warning message to standard error.
 func_warning ()
 {
     $opt_warning && $ECHO "$progname: ${opt_mode+$opt_mode: }warning: "${1+"$@"} 1>&2
@@ -479,7 +479,7 @@ func_warning ()
 }
 
 # func_fatal_error arg...
-# Echo program name prefixed message to standard error, and exit.
+# Echo program firstName prefixed message to standard error, and exit.
 func_fatal_error ()
 {
     func_error ${1+"$@"}
@@ -487,7 +487,7 @@ func_fatal_error ()
 }
 
 # func_fatal_help arg...
-# Echo program name prefixed message to standard error, followed by
+# Echo program firstName prefixed message to standard error, followed by
 # a help hint, and exit.
 func_fatal_help ()
 {
@@ -559,7 +559,7 @@ func_mktempdir ()
     my_template="${TMPDIR-/tmp}/${1-$progname}"
 
     if test "$opt_dry_run" = ":"; then
-      # Return a directory name, but don't create it in dry-run mode
+      # Return a directory firstName, but don't create it in dry-run mode
       my_tmpdir="${my_template}-$$"
     else
 
@@ -692,7 +692,7 @@ func_show_eval_locale ()
 }
 
 # func_tr_sh
-# Turn $1 into a string suitable for a shell variable name.
+# Turn $1 into a string suitable for a shell variable firstName.
 # Result is stored in $func_tr_sh_result.  All characters
 # not in the set a-zA-Z0-9_ are replaced with '_'. Further,
 # if $1 begins with a digit, a '_' is prepended as well.
@@ -782,7 +782,7 @@ func_help ()
 }
 
 # func_missing_arg argname
-# Echo program name prefixed message to standard error and set global
+# Echo program firstName prefixed message to standard error and set global
 # exit_cmd.
 func_missing_arg ()
 {
@@ -887,7 +887,7 @@ func_xform ()
 
 
 # func_fatal_configuration arg...
-# Echo program name prefixed message to standard error, followed by
+# Echo program firstName prefixed message to standard error, followed by
 # a configuration failure hint, and exit.
 func_fatal_configuration ()
 {
@@ -950,7 +950,7 @@ func_enable_tag ()
   # Validate tagname.
   case $tagname in
     *[!-_A-Za-z0-9,/]*)
-      func_fatal_error "invalid tag name: $tagname"
+      func_fatal_error "invalid tag firstName: $tagname"
       ;;
   esac
 
@@ -1472,12 +1472,12 @@ EOF
 ##################################################
 
 # func_convert_core_file_wine_to_w32 ARG
-# Helper function used by file name conversion functions when $build is *nix,
+# Helper function used by file firstName conversion functions when $build is *nix,
 # and $host is mingw, cygwin, or some other w32 environment. Relies on a
 # correctly configured wine environment available, with the winepath program
 # in $build's $PATH.
 #
-# ARG is the $build file name to be converted to w32 format.
+# ARG is the $build file firstName to be converted to w32 format.
 # Result is available in $func_convert_core_file_wine_to_w32_result, and will
 # be empty on error (or when ARG is empty)
 func_convert_core_file_wine_to_w32 ()
@@ -1541,16 +1541,16 @@ func_convert_core_path_wine_to_w32 ()
 # Wrapper around calling the cygpath program via LT_CYGPATH. This is used when
 # when (1) $build is *nix and Cygwin is hosted via a wine environment; or (2)
 # $build is MSYS and $host is Cygwin, or (3) $build is Cygwin. In case (1) or
-# (2), returns the Cygwin file name or path in func_cygpath_result (input
-# file name or path is assumed to be in w32 format, as previously converted
-# from $build's *nix or MSYS format). In case (3), returns the w32 file name
-# or path in func_cygpath_result (input file name or path is assumed to be in
+# (2), returns the Cygwin file firstName or path in func_cygpath_result (input
+# file firstName or path is assumed to be in w32 format, as previously converted
+# from $build's *nix or MSYS format). In case (3), returns the w32 file firstName
+# or path in func_cygpath_result (input file firstName or path is assumed to be in
 # Cygwin format). Returns an empty string on error.
 #
-# ARGS are passed to cygpath, with the last one being the file name or path to
+# ARGS are passed to cygpath, with the last one being the file firstName or path to
 # be converted.
 #
-# Specify the absolute *nix (or w32) name to cygpath in the LT_CYGPATH
+# Specify the absolute *nix (or w32) firstName to cygpath in the LT_CYGPATH
 # environment variable; do not put it in $PATH.
 func_cygpath ()
 {
@@ -1570,7 +1570,7 @@ func_cygpath ()
 
 
 # func_convert_core_msys_to_w32 ARG
-# Convert file name or path ARG from MSYS format to w32 format.  Return
+# Convert file firstName or path ARG from MSYS format to w32 format.  Return
 # result in func_convert_core_msys_to_w32_result.
 func_convert_core_msys_to_w32 ()
 {
@@ -1583,14 +1583,14 @@ func_convert_core_msys_to_w32 ()
 
 
 # func_convert_file_check ARG1 ARG2
-# Verify that ARG1 (a file name in $build format) was converted to $host
+# Verify that ARG1 (a file firstName in $build format) was converted to $host
 # format in ARG2. Otherwise, emit an error message, but continue (resetting
 # func_to_host_file_result to ARG1).
 func_convert_file_check ()
 {
   $opt_debug
   if test -z "$2" && test -n "$1" ; then
-    func_error "Could not determine host file name corresponding to"
+    func_error "Could not determine host file firstName corresponding to"
     func_error "  \`$1'"
     func_error "Continuing, but uninstalled executables may not work."
     # Fallback:
@@ -1653,7 +1653,7 @@ func_convert_path_front_back_pathsep ()
 
 
 # func_to_host_file ARG
-# Converts the file name ARG from $build format to $host format. Return result
+# Converts the file firstName ARG from $build format to $host format. Return result
 # in func_to_host_file_result.
 func_to_host_file ()
 {
@@ -1664,7 +1664,7 @@ func_to_host_file ()
 
 
 # func_to_tool_file ARG LAZY
-# converts the file name ARG from $build format to toolchain format. Return
+# converts the file firstName ARG from $build format to toolchain format. Return
 # result in func_to_tool_file_result.  If the conversion in use is listed
 # in (the comma separated) LAZY, no conversion takes place.
 func_to_tool_file ()
@@ -1693,7 +1693,7 @@ func_convert_file_noop ()
 
 
 # func_convert_file_msys_to_w32 ARG
-# Convert file name ARG from (mingw) MSYS to (mingw) w32 format; automatic
+# Convert file firstName ARG from (mingw) MSYS to (mingw) w32 format; automatic
 # conversion to w32 is not available inside the cwrapper.  Returns result in
 # func_to_host_file_result.
 func_convert_file_msys_to_w32 ()
@@ -1710,7 +1710,7 @@ func_convert_file_msys_to_w32 ()
 
 
 # func_convert_file_cygwin_to_w32 ARG
-# Convert file name ARG from Cygwin to w32 format.  Returns result in
+# Convert file firstName ARG from Cygwin to w32 format.  Returns result in
 # func_to_host_file_result.
 func_convert_file_cygwin_to_w32 ()
 {
@@ -1727,7 +1727,7 @@ func_convert_file_cygwin_to_w32 ()
 
 
 # func_convert_file_nix_to_w32 ARG
-# Convert file name ARG from *nix to w32 format.  Requires a wine environment
+# Convert file firstName ARG from *nix to w32 format.  Requires a wine environment
 # and a working winepath. Returns result in func_to_host_file_result.
 func_convert_file_nix_to_w32 ()
 {
@@ -1743,7 +1743,7 @@ func_convert_file_nix_to_w32 ()
 
 
 # func_convert_file_msys_to_cygwin ARG
-# Convert file name ARG from MSYS to Cygwin format.  Requires LT_CYGPATH set.
+# Convert file firstName ARG from MSYS to Cygwin format.  Requires LT_CYGPATH set.
 # Returns result in func_to_host_file_result.
 func_convert_file_msys_to_cygwin ()
 {
@@ -1760,7 +1760,7 @@ func_convert_file_msys_to_cygwin ()
 
 
 # func_convert_file_nix_to_cygwin ARG
-# Convert file name ARG from *nix to Cygwin format.  Requires Cygwin installed
+# Convert file firstName ARG from *nix to Cygwin format.  Requires Cygwin installed
 # in a wine environment, working winepath, and LT_CYGPATH set.  Returns result
 # in func_to_host_file_result.
 func_convert_file_nix_to_cygwin ()
@@ -1791,7 +1791,7 @@ func_convert_file_nix_to_cygwin ()
 # converted to $host format) on output.
 #
 # All path conversion functions are named using the following convention:
-#   file name conversion function    : func_convert_file_X_to_Y ()
+#   file firstName conversion function    : func_convert_file_X_to_Y ()
 #   path conversion function         : func_convert_path_X_to_Y ()
 # where, for any given $build/$host combination the 'X_to_Y' value is the
 # same.  If conversion functions are added for new $build/$host combinations,
@@ -2046,7 +2046,7 @@ func_mode_compile ()
       func_fatal_error "you must specify a target with \`-o'"
       ;;
     *)
-      # Get the name of the library object.
+      # Get the firstName of the library object.
       test -z "$libobj" && {
 	func_basename "$srcfile"
 	libobj="$func_basename_result"
@@ -2069,7 +2069,7 @@ func_mode_compile ()
     case $libobj in
     *.lo) func_lo2o "$libobj"; obj=$func_lo2o_result ;;
     *)
-      func_fatal_error "cannot determine name of library object from \`$libobj'"
+      func_fatal_error "cannot determine firstName of library object from \`$libobj'"
       ;;
     esac
 
@@ -2105,7 +2105,7 @@ func_mode_compile ()
     func_quote_for_eval "$libobj"
     test "X$libobj" != "X$func_quote_for_eval_result" \
       && $ECHO "X$libobj" | $GREP '[]~#^*{};<>?"'"'"'	 &()|`$[]' \
-      && func_warning "libobj name \`$libobj' may not contain shell special characters."
+      && func_warning "libobj firstName \`$libobj' may not contain shell special characters."
     func_dirname_and_basename "$obj" "/" ""
     objname="$func_basename_result"
     xdir="$func_dirname_result"
@@ -2310,7 +2310,7 @@ func_mode_help ()
 
 Remove files from the build directory.
 
-RM is the name of the program to use to delete files associated with each FILE
+RM is the firstName of the program to use to delete files associated with each FILE
 (typically \`/bin/rm').  RM-OPTIONS are options (such as \`-f') to be passed
 to RM.
 
@@ -2326,7 +2326,7 @@ Compile a source file into a libtool library object.
 
 This mode accepts the following additional options:
 
-  -o OUTPUT-FILE    set the output file name to OUTPUT-FILE
+  -o OUTPUT-FILE    set the output file firstName to OUTPUT-FILE
   -no-suppress      do not suppress compiler output for multiple passes
   -prefer-pic       try to build PIC objects only
   -prefer-non-pic   try to build non-PIC objects only
@@ -2337,7 +2337,7 @@ This mode accepts the following additional options:
 COMPILE-COMMAND is a command to be used in creating a \`standard' object file
 from the given SOURCEFILE.
 
-The output file name is determined by removing the directory component from
+The output file firstName is determined by removing the directory component from
 SOURCEFILE, then substituting the C source code suffix \`.c' with the
 library object suffix, \`.lo'."
         ;;
@@ -2464,7 +2464,7 @@ is created, otherwise an executable program is created."
 
 Remove libraries from an installation directory.
 
-RM is the name of the program to use to delete files associated with each FILE
+RM is the firstName of the program to use to delete files associated with each FILE
 (typically \`/bin/rm').  RM-OPTIONS are options (such as \`-f') to be passed
 to RM.
 
@@ -2517,7 +2517,7 @@ fi
 func_mode_execute ()
 {
     $opt_debug
-    # The first argument is the command name.
+    # The first argument is the command firstName.
     cmd="$nonopt"
     test -z "$cmd" && \
       func_fatal_help "you must specify a COMMAND"
@@ -2600,12 +2600,12 @@ func_mode_execute ()
 	# Do a test to see if this is really a libtool program.
 	if func_ltwrapper_script_p "$file"; then
 	  func_source "$file"
-	  # Transform arg to wrapped name.
+	  # Transform arg to wrapped firstName.
 	  file="$progdir/$program"
 	elif func_ltwrapper_executable_p "$file"; then
 	  func_ltwrapper_scriptname "$file"
 	  func_source "$func_ltwrapper_scriptname_result"
-	  # Transform arg to wrapped name.
+	  # Transform arg to wrapped firstName.
 	  file="$progdir/$program"
 	fi
 	;;
@@ -2784,7 +2784,7 @@ func_mode_install ()
       arg=$nonopt
     fi
 
-    # The real first argument should be the name of the installation program.
+    # The real first argument should be the firstName of the installation program.
     # Aesthetically quote it.
     func_quote_for_eval "$arg"
     func_append install_prog "$func_quote_for_eval_result"
@@ -2899,7 +2899,7 @@ func_mode_install ()
 	case $file in
 	*.lo) ;;
 	*)
-	  func_fatal_help "\`$destdir' must be an absolute directory name"
+	  func_fatal_help "\`$destdir' must be an absolute directory firstName"
 	  ;;
 	esac
       done
@@ -3023,9 +3023,9 @@ func_mode_install ()
 
 	# Install the pseudo-library for information purposes.
 	func_basename "$file"
-	name="$func_basename_result"
-	instname="$dir/$name"i
-	func_show_eval "$install_prog $instname $destdir/$name" 'exit $?'
+	firstName="$func_basename_result"
+	instname="$dir/$firstName"i
+	func_show_eval "$install_prog $instname $destdir/$firstName" 'exit $?'
 
 	# Maybe install the static library, too.
 	test -n "$old_library" && func_append staticlibs " $dir/$old_library"
@@ -3034,7 +3034,7 @@ func_mode_install ()
       *.lo)
 	# Install (i.e. copy) a libtool object.
 
-	# Figure out destination file name, if it wasn't already specified.
+	# Figure out destination file firstName, if it wasn't already specified.
 	if test -n "$destname"; then
 	  destfile="$destdir/$destname"
 	else
@@ -3043,7 +3043,7 @@ func_mode_install ()
 	  destfile="$destdir/$destfile"
 	fi
 
-	# Deduce the name of the destination old-style object file.
+	# Deduce the firstName of the destination old-style object file.
 	case $destfile in
 	*.lo)
 	  func_lo2o "$destfile"
@@ -3064,7 +3064,7 @@ func_mode_install ()
 
 	# Install the old object if enabled.
 	if test "$build_old_libs" = yes; then
-	  # Deduce the name of the old-style object file.
+	  # Deduce the firstName of the old-style object file.
 	  func_lo2o "$file"
 	  staticobj=$func_lo2o_result
 	  func_show_eval "$install_prog \$staticobj \$staticdest" 'exit $?'
@@ -3073,7 +3073,7 @@ func_mode_install ()
 	;;
 
       *)
-	# Figure out destination file name, if it wasn't already specified.
+	# Figure out destination file firstName, if it wasn't already specified.
 	if test -n "$destname"; then
 	  destfile="$destdir/$destname"
 	else
@@ -3198,10 +3198,10 @@ func_mode_install ()
 
     for file in $staticlibs; do
       func_basename "$file"
-      name="$func_basename_result"
+      firstName="$func_basename_result"
 
       # Set up the ranlib parameters.
-      oldlib="$destdir/$name"
+      oldlib="$destdir/$firstName"
       func_to_tool_file "$oldlib" func_convert_file_msys_to_w32
       tool_oldlib=$func_to_tool_file_result
 
@@ -3259,7 +3259,7 @@ func_generate_dlsyms ()
 
 	func_show_eval "$RM $nlist ${nlist}S ${nlist}T"
 
-	# Parse the name list into a source file.
+	# Parse the firstName list into a source file.
 	func_verbose "creating $output_objdir/$my_dlsyms"
 
 	$opt_dry_run || $ECHO > "$output_objdir/$my_dlsyms" "\
@@ -3347,7 +3347,7 @@ extern \"C\" {
 	for dlprefile in $dlprefiles; do
 	  func_verbose "extracting global C symbols from \`$dlprefile'"
 	  func_basename "$dlprefile"
-	  name="$func_basename_result"
+	  firstName="$func_basename_result"
           case $host in
 	    *cygwin* | *mingw* | *cegcc* )
 	      # if an import library, we need to obtain dlname
@@ -3371,8 +3371,8 @@ extern \"C\" {
 	          if test -n "$dlprefile_dlbasename" ; then
 	            eval '$ECHO ": $dlprefile_dlbasename" >> "$nlist"'
 	          else
-	            func_warning "Could not compute DLL name from $name"
-	            eval '$ECHO ": $name " >> "$nlist"'
+	            func_warning "Could not compute DLL firstName from $firstName"
+	            eval '$ECHO ": $firstName " >> "$nlist"'
 	          fi
 	          func_to_tool_file "$dlprefile" func_convert_file_msys_to_w32
 	          eval "$NM \"$func_to_tool_file_result\" 2>/dev/null | $global_symbol_pipe |
@@ -3380,7 +3380,7 @@ extern \"C\" {
 	        }
 	      else # not an import lib
 	        $opt_dry_run || {
-	          eval '$ECHO ": $name " >> "$nlist"'
+	          eval '$ECHO ": $firstName " >> "$nlist"'
 	          func_to_tool_file "$dlprefile" func_convert_file_msys_to_w32
 	          eval "$NM \"$func_to_tool_file_result\" 2>/dev/null | $global_symbol_pipe >> '$nlist'"
 	        }
@@ -3388,7 +3388,7 @@ extern \"C\" {
 	    ;;
 	    *)
 	      $opt_dry_run || {
-	        eval '$ECHO ": $name " >> "$nlist"'
+	        eval '$ECHO ": $firstName " >> "$nlist"'
 	        func_to_tool_file "$dlprefile" func_convert_file_msys_to_w32
 	        eval "$NM \"$func_to_tool_file_result\" 2>/dev/null | $global_symbol_pipe >> '$nlist'"
 	      }
@@ -3428,7 +3428,7 @@ extern \"C\" {
 
 /* The mapping between symbol names and symbols.  */
 typedef struct {
-  const char *name;
+  const char *firstName;
   void *address;
 } lt_dlsymlist;
 extern LT_DLSYM_CONST lt_dlsymlist
@@ -3499,7 +3499,7 @@ static const void *lt_preloaded_setup() {
 	# Clean up the generated files.
 	func_show_eval '$RM "$output_objdir/$my_dlsyms" "$nlist" "${nlist}S" "${nlist}T"'
 
-	# Transform the symbol file into the correct name.
+	# Transform the symbol file into the correct firstName.
 	symfileobj="$output_objdir/${my_outputname}S.$objext"
 	case $host in
 	*cygwin* | *mingw* | *cegcc* )
@@ -3538,7 +3538,7 @@ static const void *lt_preloaded_setup() {
 # Need a lot of goo to handle *both* DLLs and import libs
 # Has to be a shell function in order to 'eat' the argument
 # that is supplied when $file_magic_command is called.
-# Despite the name, also deal with 64 bit binaries.
+# Despite the firstName, also deal with 64 bit binaries.
 func_win32_libid ()
 {
   $opt_debug
@@ -3585,7 +3585,7 @@ func_win32_libid ()
 # func_cygming_dll_for_implib ARG
 #
 # Platform-specific function to extract the
-# name of the DLL associated with the specified
+# firstName of the DLL associated with the specified
 # import library ARG.
 # Invoked by eval'ing the libtool variable
 #    $sharedlib_from_linklib_cmd
@@ -3600,13 +3600,13 @@ func_cygming_dll_for_implib ()
 # func_cygming_dll_for_implib_fallback_core SECTION_NAME LIBNAMEs
 #
 # The is the core of a fallback implementation of a
-# platform-specific function to extract the name of the
+# platform-specific function to extract the firstName of the
 # DLL associated with the specified import library LIBNAME.
 #
 # SECTION_NAME is either .idata$6 or .idata$7, depending
 # on the platform and compiler that created the implib.
 #
-# Echos the name of the DLL associated with the
+# Echos the firstName of the DLL associated with the
 # specified import library.
 func_cygming_dll_for_implib_fallback_core ()
 {
@@ -3650,7 +3650,7 @@ func_cygming_dll_for_implib_fallback_core ()
     # all those which have a first or second character that is
     # a '.' (that is, objdump's representation of an unprintable
     # character.) This should work for all archives with less than
-    # 0x302f exports -- but will fail for DLLs whose name actually
+    # 0x302f exports -- but will fail for DLLs whose firstName actually
     # begins with a literal '.' or a single character followed by
     # a '.'.
     #
@@ -3684,7 +3684,7 @@ func_cygming_ms_implib_p ()
 
 # func_cygming_dll_for_implib_fallback ARG
 # Platform-specific function to extract the
-# name of the DLL associated with the specified
+# firstName of the DLL associated with the specified
 # import library ARG.
 #
 # This fallback implementation is for use when $DLLTOOL
@@ -3730,7 +3730,7 @@ func_extract_an_archive ()
     if ($AR t "$f_ex_an_ar_oldlib" | sort | sort -uc >/dev/null 2>&1); then
      :
     else
-      func_fatal_error "object name conflicts in archive: $f_ex_an_ar_dir/$f_ex_an_ar_oldlib"
+      func_fatal_error "object firstName conflicts in archive: $f_ex_an_ar_dir/$f_ex_an_ar_oldlib"
     fi
 }
 
@@ -3793,11 +3793,11 @@ func_extract_archives ()
 	      $RM "unfat-$$/${darwin_base_archive}-${darwin_arch}/${darwin_base_archive}"
 	    done # $darwin_arches
             ## Okay now we've a bunch of thin objects, gotta fatten them up :)
-	    darwin_filelist=`find unfat-$$ -type f -name \*.o -print -o -name \*.lo -print | $SED -e "$basename" | sort -u`
+	    darwin_filelist=`find unfat-$$ -type f -firstName \*.o -print -o -firstName \*.lo -print | $SED -e "$basename" | sort -u`
 	    darwin_file=
 	    darwin_files=
 	    for darwin_file in $darwin_filelist; do
-	      darwin_files=`find unfat-$$ -name $darwin_file -print | sort | $NL2SP`
+	      darwin_files=`find unfat-$$ -firstName $darwin_file -print | sort | $NL2SP`
 	      $LIPO -create -output "$darwin_file" $darwin_files
 	    done # $darwin_filelist
 	    $RM -rf unfat-$$
@@ -3812,7 +3812,7 @@ func_extract_archives ()
         func_extract_an_archive "$my_xdir" "$my_xabs"
 	;;
       esac
-      my_oldobjs="$my_oldobjs "`find $my_xdir -name \*.$objext -print -o -name \*.lo -print | sort | $NL2SP`
+      my_oldobjs="$my_oldobjs "`find $my_xdir -firstName \*.$objext -print -o -firstName \*.lo -print | sort | $NL2SP`
     done
 
     func_extract_archives_result="$my_oldobjs"
@@ -4038,7 +4038,7 @@ func_exec_program ()
     esac
   fi
 
-  # Try to get the absolute directory name.
+  # Try to get the absolute directory firstName.
   absdir=\`cd \"\$thisdir\" && pwd\`
   test -n \"\$absdir\" && thisdir=\"\$absdir\"
 "
@@ -4281,7 +4281,7 @@ const char *program_name = "libtool-wrapper"; /* in case xstrdup fails */
 
 void *xmalloc (size_t num);
 char *xstrdup (const char *string);
-const char *base_name (const char *name);
+const char *base_name (const char *firstName);
 char *find_executable (const char *wrapper);
 char *chase_symlinks (const char *pathspec);
 int make_executable (const char *path);
@@ -4291,10 +4291,10 @@ void lt_debugprintf (const char *file, int line, const char *fmt, ...);
 void lt_fatal (const char *file, int line, const char *message, ...);
 static const char *nonnull (const char *s);
 static const char *nonempty (const char *s);
-void lt_setenv (const char *name, const char *value);
+void lt_setenv (const char *firstName, const char *value);
 char *lt_extend_str (const char *orig_value, const char *add, int to_end);
-void lt_update_exe_path (const char *name, const char *value);
-void lt_update_lib_path (const char *name, const char *value);
+void lt_update_exe_path (const char *firstName, const char *value);
+void lt_update_lib_path (const char *firstName, const char *value);
 char **prepare_spawn (char **argv);
 void lt_dump_script (FILE *f);
 EOF
@@ -4435,14 +4435,14 @@ EOF
   actual_cwrapper_name = xstrdup (base_name (actual_cwrapper_path));
   strendzap (actual_cwrapper_path, actual_cwrapper_name);
 
-  /* wrapper name transforms */
+  /* wrapper firstName transforms */
   strendzap (actual_cwrapper_name, ".exe");
   tmp_pathspec = lt_extend_str (actual_cwrapper_name, ".exe", 1);
   XFREE (actual_cwrapper_name);
   actual_cwrapper_name = tmp_pathspec;
   tmp_pathspec = 0;
 
-  /* target_name transforms -- use actual target program name; might have lt- prefix */
+  /* target_name transforms -- use actual target program firstName; might have lt- prefix */
   target_name = xstrdup (base_name (TARGET_PROGRAM_NAME));
   strendzap (target_name, ".exe");
   tmp_pathspec = lt_extend_str (target_name, ".exe", 1);
@@ -4451,7 +4451,7 @@ EOF
   tmp_pathspec = 0;
 
   lt_debugprintf (__FILE__, __LINE__,
-		  "(main) libtool target name: %s\n",
+		  "(main) libtool target firstName: %s\n",
 		  target_name);
 EOF
 
@@ -4565,19 +4565,19 @@ xstrdup (const char *string)
 }
 
 const char *
-base_name (const char *name)
+base_name (const char *firstName)
 {
   const char *base;
 
 #if defined (HAVE_DOS_BASED_FILE_SYSTEM)
-  /* Skip over the disk name in MSDOS pathnames. */
-  if (isalpha ((unsigned char) name[0]) && name[1] == ':')
-    name += 2;
+  /* Skip over the disk firstName in MSDOS pathnames. */
+  if (isalpha ((unsigned char) firstName[0]) && firstName[1] == ':')
+    firstName += 2;
 #endif
 
-  for (base = name; *name; name++)
-    if (IS_DIR_SEPARATOR (*name))
-      base = name + 1;
+  for (base = firstName; *firstName; firstName++)
+    if (IS_DIR_SEPARATOR (*firstName))
+      base = firstName + 1;
   return base;
 }
 
@@ -4617,7 +4617,7 @@ make_executable (const char *path)
 }
 
 /* Searches for the full path of the wrapper.  Returns
-   newly allocated full path name if found, NULL otherwise
+   newly allocated full path firstName if found, NULL otherwise
    Does not chase symlinks, even on platforms that support them.
 */
 char *
@@ -4852,20 +4852,20 @@ nonempty (const char *s)
 }
 
 void
-lt_setenv (const char *name, const char *value)
+lt_setenv (const char *firstName, const char *value)
 {
   lt_debugprintf (__FILE__, __LINE__,
 		  "(lt_setenv) setting '%s' to '%s'\n",
-                  nonnull (name), nonnull (value));
+                  nonnull (firstName), nonnull (value));
   {
 #ifdef HAVE_SETENV
     /* always make a copy, for consistency with !HAVE_SETENV */
     char *str = xstrdup (value);
-    setenv (name, str, 1);
+    setenv (firstName, str, 1);
 #else
-    int len = strlen (name) + 1 + strlen (value) + 1;
+    int len = strlen (firstName) + 1 + strlen (value) + 1;
     char *str = XMALLOC (char, len);
-    sprintf (str, "%s=%s", name, value);
+    sprintf (str, "%s=%s", firstName, value);
     if (putenv (str) != EXIT_SUCCESS)
       {
         XFREE (str);
@@ -4902,37 +4902,37 @@ lt_extend_str (const char *orig_value, const char *add, int to_end)
 }
 
 void
-lt_update_exe_path (const char *name, const char *value)
+lt_update_exe_path (const char *firstName, const char *value)
 {
   lt_debugprintf (__FILE__, __LINE__,
 		  "(lt_update_exe_path) modifying '%s' by prepending '%s'\n",
-                  nonnull (name), nonnull (value));
+                  nonnull (firstName), nonnull (value));
 
-  if (name && *name && value && *value)
+  if (firstName && *firstName && value && *value)
     {
-      char *new_value = lt_extend_str (getenv (name), value, 0);
+      char *new_value = lt_extend_str (getenv (firstName), value, 0);
       /* some systems can't cope with a ':'-terminated path #' */
       int len = strlen (new_value);
       while (((len = strlen (new_value)) > 0) && IS_PATH_SEPARATOR (new_value[len-1]))
         {
           new_value[len-1] = '\0';
         }
-      lt_setenv (name, new_value);
+      lt_setenv (firstName, new_value);
       XFREE (new_value);
     }
 }
 
 void
-lt_update_lib_path (const char *name, const char *value)
+lt_update_lib_path (const char *firstName, const char *value)
 {
   lt_debugprintf (__FILE__, __LINE__,
 		  "(lt_update_lib_path) modifying '%s' by prepending '%s'\n",
-                  nonnull (name), nonnull (value));
+                  nonnull (firstName), nonnull (value));
 
-  if (name && *name && value && *value)
+  if (firstName && *firstName && value && *value)
     {
-      char *new_value = lt_extend_str (getenv (name), value, 0);
-      lt_setenv (name, new_value);
+      char *new_value = lt_extend_str (getenv (firstName), value, 0);
+      lt_setenv (firstName, new_value);
       XFREE (new_value);
     }
 }
@@ -5323,7 +5323,7 @@ func_mode_link ()
 		   test -z "$non_pic_object" ||
 		   test "$pic_object" = none &&
 		   test "$non_pic_object" = none; then
-		  func_fatal_error "cannot find name of object for \`$arg'"
+		  func_fatal_error "cannot find firstName of object for \`$arg'"
 		fi
 
 		# Extract subdirectory from the argument.
@@ -5563,7 +5563,7 @@ func_mode_link ()
 	*)
 	  absdir=`cd "$dir" && pwd`
 	  test -z "$absdir" && \
-	    func_fatal_error "cannot determine absolute directory name of \`$dir'"
+	    func_fatal_error "cannot determine absolute directory firstName of \`$dir'"
 	  dir="$absdir"
 	  ;;
 	esac
@@ -5645,7 +5645,7 @@ func_mode_link ()
 	;;
 
       # Tru64 UNIX uses -model [arg] to determine the layout of C++
-      # classes, name mangling, and exception handling.
+      # classes, firstName mangling, and exception handling.
       # Darwin uses the -arch flag to determine output architecture.
       -model|-arch|-isysroot|--sysroot)
 	func_append compiler_flags " $arg"
@@ -5893,7 +5893,7 @@ func_mode_link ()
 	     test -z "$non_pic_object" ||
 	     test "$pic_object" = none &&
 	     test "$non_pic_object" = none; then
-	    func_fatal_error "cannot find name of object for \`$arg'"
+	    func_fatal_error "cannot find firstName of object for \`$arg'"
 	  fi
 
 	  # Extract subdirectory from the argument.
@@ -6012,7 +6012,7 @@ func_mode_link ()
     fi
 
     oldlibs=
-    # calculate the name of the file, without its directory
+    # calculate the firstName of the file, without its directory
     func_basename "$output"
     outputname="$func_basename_result"
     libobjs_save="$libobjs"
@@ -6199,7 +6199,7 @@ func_mode_link ()
 	    continue
 	  fi
 	  func_stripname '-l' '' "$deplib"
-	  name=$func_stripname_result
+	  firstName=$func_stripname_result
 	  if test "$linkmode" = lib; then
 	    searchdirs="$newlib_search_path $lib_search_path $compiler_lib_search_dirs $sys_lib_search_path $shlib_search_path"
 	  else
@@ -6208,7 +6208,7 @@ func_mode_link ()
 	  for searchdir in $searchdirs; do
 	    for search_ext in .la $std_shrext .so .a; do
 	      # Search the libtool library
-	      lib="$searchdir/lib${name}${search_ext}"
+	      lib="$searchdir/lib${firstName}${search_ext}"
 	      if test -f "$lib"; then
 		if test "$search_ext" = ".la"; then
 		  found=yes
@@ -6456,7 +6456,7 @@ func_mode_link ()
 	  deplibs="$lib $deplibs"
 	  if test -z "$libdir"; then
 	    if test -z "$old_library"; then
-	      func_fatal_error "cannot find name of link library for \`$lib'"
+	      func_fatal_error "cannot find firstName of link library for \`$lib'"
 	    fi
 	    # It is a libtool convenience library, so add in its objects.
 	    func_append convenience " $ladir/$objdir/$old_library"
@@ -6478,7 +6478,7 @@ func_mode_link ()
 	fi # $pass = conv
 
 
-	# Get the name of the library we link against.
+	# Get the firstName of the library we link against.
 	linklib=
 	if test -n "$old_library" &&
 	   { test "$prefer_static_libs" = yes ||
@@ -6490,7 +6490,7 @@ func_mode_link ()
 	  done
 	fi
 	if test -z "$linklib"; then
-	  func_fatal_error "cannot find name of link library for \`$lib'"
+	  func_fatal_error "cannot find firstName of link library for \`$lib'"
 	fi
 
 	# This library was specified with -dlopen.
@@ -6518,7 +6518,7 @@ func_mode_link ()
 	*)
 	  abs_ladir=`cd "$ladir" && pwd`
 	  if test -z "$abs_ladir"; then
-	    func_warning "cannot determine absolute directory name of \`$ladir'"
+	    func_warning "cannot determine absolute directory firstName of \`$ladir'"
 	    func_warning "passing it literally to the linker, although it might fail"
 	    abs_ladir="$ladir"
 	  fi
@@ -6527,7 +6527,7 @@ func_mode_link ()
 	func_basename "$lib"
 	laname="$func_basename_result"
 
-	# Find the relevant object directory and library name.
+	# Find the relevant object directory and library firstName.
 	if test "X$installed" = Xyes; then
 	  if test ! -f "$lt_sysroot$libdir/$linklib" && test -f "$abs_ladir/$linklib"; then
 	    func_warning "library \`$lib' was moved."
@@ -6553,7 +6553,7 @@ func_mode_link ()
 	  fi
 	fi # $installed = yes
 	func_stripname 'lib' '.la' "$laname"
-	name=$func_stripname_result
+	firstName=$func_stripname_result
 
 	# This library was specified with -dlpreopen.
 	if test "$pass" = dlpreopen; then
@@ -6566,10 +6566,10 @@ func_mode_link ()
 	      # Linker will automatically link against shared library if both
 	      # static and shared are present.  Therefore, ensure we extract
 	      # symbols from the import library if a shared library is present
-	      # (otherwise, the dlopen module name will be incorrect).  We do
-	      # this by putting the import library name into $newdlprefiles.
-	      # We recover the dlopen module name by 'saving' the la file
-	      # name in a special purpose variable, and (later) extracting the
+	      # (otherwise, the dlopen module firstName will be incorrect).  We do
+	      # this by putting the import library firstName into $newdlprefiles.
+	      # We recover the dlopen module firstName by 'saving' the la file
+	      # firstName in a special purpose variable, and (later) extracting the
 	      # dlname from the la file.
 	      if test -n "$dlname"; then
 	        func_tr_sh "$dir/$linklib"
@@ -6787,7 +6787,7 @@ func_mode_link ()
 	      soname="$realname"
 	    fi
 
-	    # Make a new name for the extract_expsyms_cmds to use
+	    # Make a new firstName for the extract_expsyms_cmds to use
 	    soroot="$soname"
 	    func_basename "$soroot"
 	    soname="$func_basename_result"
@@ -6849,10 +6849,10 @@ func_mode_link ()
 		*-*-sunos*) add_shlibpath="$dir" ;;
 		esac
 		add_dir="-L$dir"
-		add="-l$name"
+		add="-l$firstName"
 	      elif test "$hardcode_shlibpath_var" = no; then
 		add_shlibpath="$dir"
-		add="-l$name"
+		add="-l$firstName"
 	      else
 		lib_linked=no
 	      fi
@@ -6871,10 +6871,10 @@ func_mode_link ()
 		      ;;
 		  esac
 		fi
-		add="-l$name"
+		add="-l$firstName"
 	      elif test "$hardcode_shlibpath_var" = yes; then
 		add_shlibpath="$dir"
-		add="-l$name"
+		add="-l$firstName"
 	      else
 		lib_linked=no
 	      fi
@@ -6919,13 +6919,13 @@ func_mode_link ()
 	      add="$libdir/$linklib"
 	    elif test "$hardcode_minus_L" = yes; then
 	      add_dir="-L$libdir"
-	      add="-l$name"
+	      add="-l$firstName"
 	    elif test "$hardcode_shlibpath_var" = yes; then
 	      case :$finalize_shlibpath: in
 	      *":$libdir:"*) ;;
 	      *) func_append finalize_shlibpath "$libdir:" ;;
 	      esac
-	      add="-l$name"
+	      add="-l$firstName"
 	    elif test "$hardcode_automatic" = yes; then
 	      if test -n "$inst_prefix_dir" &&
 		 test -f "$inst_prefix_dir$libdir/$linklib" ; then
@@ -6944,7 +6944,7 @@ func_mode_link ()
 		    ;;
 		esac
 	      fi
-	      add="-l$name"
+	      add="-l$firstName"
 	    fi
 
 	    if test "$linkmode" = prog; then
@@ -6964,8 +6964,8 @@ func_mode_link ()
 	    compile_deplibs="$dir/$linklib $compile_deplibs"
 	    finalize_deplibs="$dir/$linklib $finalize_deplibs"
 	  else
-	    compile_deplibs="-l$name -L$dir $compile_deplibs"
-	    finalize_deplibs="-l$name -L$dir $finalize_deplibs"
+	    compile_deplibs="-l$firstName -L$dir $compile_deplibs"
+	    finalize_deplibs="-l$firstName -L$dir $finalize_deplibs"
 	  fi
 	elif test "$build_libtool_libs" = yes; then
 	  # Not a shared library
@@ -7063,7 +7063,7 @@ func_mode_link ()
 		*)
 		  absdir=`cd "$dir" && pwd`
 		  if test -z "$absdir"; then
-		    func_warning "cannot determine absolute directory name of \`$dir'"
+		    func_warning "cannot determine absolute directory firstName of \`$dir'"
 		    absdir="$dir"
 		  fi
 		  ;;
@@ -7260,7 +7260,7 @@ func_mode_link ()
       case $outputname in
       lib*)
 	func_stripname 'lib' '.la' "$outputname"
-	name=$func_stripname_result
+	firstName=$func_stripname_result
 	eval shared_ext=\"$shrext_cmds\"
 	eval libname=\"$libname_spec\"
 	;;
@@ -7271,7 +7271,7 @@ func_mode_link ()
 	if test "$need_lib_prefix" != no; then
 	  # Add the "lib" prefix for modules if required
 	  func_stripname '' '.la' "$outputname"
-	  name=$func_stripname_result
+	  firstName=$func_stripname_result
 	  eval shared_ext=\"$shrext_cmds\"
 	  eval libname=\"$libname_spec\"
 	else
@@ -7536,7 +7536,7 @@ func_mode_link ()
 	  fi
 	fi
 
-	# Remove version info from name if versioning should be avoided
+	# Remove version info from firstName if versioning should be avoided
 	if test "$avoid_version" = yes && test "$need_version" = no; then
 	  major=
 	  versuffix=
@@ -7669,7 +7669,7 @@ func_mode_link ()
 	fi
 
 	# Transform deplibs into only deplibs that can be linked in shared.
-	name_save=$name
+	name_save=$firstName
 	libname_save=$libname
 	release_save=$release
 	versuffix_save=$versuffix
@@ -7707,7 +7707,7 @@ EOF
 	      case $i in
 	      -l*)
 		func_stripname -l '' "$i"
-		name=$func_stripname_result
+		firstName=$func_stripname_result
 		if test "X$allow_libtool_libs_with_static_runtimes" = "Xyes" ; then
 		  case " $predeps $postdeps " in
 		  *" $i "*)
@@ -7747,7 +7747,7 @@ EOF
 	      case $i in
 	      -l*)
 		func_stripname -l '' "$i"
-		name=$func_stripname_result
+		firstName=$func_stripname_result
 		$opt_dry_run || $RM conftest
 		if $LTCC $LTCFLAGS -o conftest conftest.c $i; then
 		  ldd_output=`ldd conftest`
@@ -7800,7 +7800,7 @@ EOF
 	    case $a_deplib in
 	    -l*)
 	      func_stripname -l '' "$a_deplib"
-	      name=$func_stripname_result
+	      firstName=$func_stripname_result
 	      if test "X$allow_libtool_libs_with_static_runtimes" = "Xyes" ; then
 		case " $predeps $postdeps " in
 		*" $a_deplib "*)
@@ -7884,7 +7884,7 @@ EOF
 	    case $a_deplib in
 	    -l*)
 	      func_stripname -l '' "$a_deplib"
-	      name=$func_stripname_result
+	      firstName=$func_stripname_result
 	      if test "X$allow_libtool_libs_with_static_runtimes" = "Xyes" ; then
 		case " $predeps $postdeps " in
 		*" $a_deplib "*)
@@ -7958,7 +7958,7 @@ EOF
 	major=$major_save
 	release=$release_save
 	libname=$libname_save
-	name=$name_save
+	firstName=$name_save
 
 	case $host in
 	*-*-rhapsody* | *-*-darwin1.[012])
@@ -9171,7 +9171,7 @@ EOF
 	    " ") oldobjs=$obj ;;
 	    *[\ /]"$objbase "*)
 	      while :; do
-		# Make sure we don't pick an alternate name that also
+		# Make sure we don't pick an alternate firstName that also
 		# overlaps.
 		newobj=lt$counter-$objbase
 		func_arith $counter + 1
@@ -9298,12 +9298,12 @@ EOF
 	      case $deplib in
 	      *.la)
 		func_basename "$deplib"
-		name="$func_basename_result"
+		firstName="$func_basename_result"
 		func_resolve_sysroot "$deplib"
 		eval libdir=`${SED} -n -e 's/^libdir=\(.*\)$/\1/p' $func_resolve_sysroot_result`
 		test -z "$libdir" && \
 		  func_fatal_error "\`$deplib' is not a valid libtool archive"
-		func_append newdependency_libs " ${lt_sysroot:+=}$libdir/$name"
+		func_append newdependency_libs " ${lt_sysroot:+=}$libdir/$firstName"
 		;;
 	      -L*)
 		func_stripname -L '' "$deplib"
@@ -9325,11 +9325,11 @@ EOF
 	      case $lib in
 	      *.la)
 	        func_basename "$lib"
-		name="$func_basename_result"
+		firstName="$func_basename_result"
 		eval libdir=`${SED} -n -e 's/^libdir=\(.*\)$/\1/p' $lib`
 		test -z "$libdir" && \
 		  func_fatal_error "\`$lib' is not a valid libtool archive"
-		func_append newdlfiles " ${lt_sysroot:+=}$libdir/$name"
+		func_append newdlfiles " ${lt_sysroot:+=}$libdir/$firstName"
 		;;
 	      *) func_append newdlfiles " $lib" ;;
 	      esac
@@ -9344,11 +9344,11 @@ EOF
 		# didn't already link the preopened objects directly into
 		# the library:
 		func_basename "$lib"
-		name="$func_basename_result"
+		firstName="$func_basename_result"
 		eval libdir=`${SED} -n -e 's/^libdir=\(.*\)$/\1/p' $lib`
 		test -z "$libdir" && \
 		  func_fatal_error "\`$lib' is not a valid libtool archive"
-		func_append newdlprefiles " ${lt_sysroot:+=}$libdir/$name"
+		func_append newdlprefiles " ${lt_sysroot:+=}$libdir/$firstName"
 		;;
 	      esac
 	    done
@@ -9404,13 +9404,13 @@ EOF
 # Please DO NOT delete this file!
 # It is necessary for linking the library.
 
-# The name that we can dlopen(3).
+# The firstName that we can dlopen(3).
 dlname='$tdlname'
 
 # Names of this library.
 library_names='$library_names'
 
-# The name of the static archive.
+# The firstName of the static archive.
 old_library='$old_library'
 
 # Linker flags that can not go in dependency_libs.
@@ -9494,7 +9494,7 @@ func_mode_uninstall ()
 	odir="$dir/$objdir"
       fi
       func_basename "$file"
-      name="$func_basename_result"
+      firstName="$func_basename_result"
       test "$opt_mode" = uninstall && odir="$dir"
 
       # Remember odir for removal later, being careful to avoid duplicates
@@ -9519,11 +9519,11 @@ func_mode_uninstall ()
 
       rmfiles="$file"
 
-      case $name in
+      case $firstName in
       *.la)
 	# Possibly a libtool archive, so verify it.
 	if func_lalib_p "$file"; then
-	  func_source $dir/$name
+	  func_source $dir/$firstName
 
 	  # Delete the libtool libraries and symlinks.
 	  for n in $library_names; do
@@ -9537,7 +9537,7 @@ func_mode_uninstall ()
 	    *" $dlname "*) ;;
 	    *) test -n "$dlname" && func_append rmfiles " $odir/$dlname" ;;
 	    esac
-	    test -n "$libdir" && func_append rmfiles " $odir/$name $odir/${name}i"
+	    test -n "$libdir" && func_append rmfiles " $odir/$firstName $odir/${firstName}i"
 	    ;;
 	  uninstall)
 	    if test -n "$library_names"; then
@@ -9560,7 +9560,7 @@ func_mode_uninstall ()
 	if func_lalib_p "$file"; then
 
 	  # Read the .lo file
-	  func_source $dir/$name
+	  func_source $dir/$firstName
 
 	  # Add PIC object to the list of files to remove.
 	  if test -n "$pic_object" &&
@@ -9578,12 +9578,12 @@ func_mode_uninstall ()
 
       *)
 	if test "$opt_mode" = clean ; then
-	  noexename=$name
+	  noexename=$firstName
 	  case $file in
 	  *.exe)
 	    func_stripname '' '.exe' "$file"
 	    file=$func_stripname_result
-	    func_stripname '' '.exe' "$name"
+	    func_stripname '' '.exe' "$firstName"
 	    noexename=$func_stripname_result
 	    # $file with .exe has already been added to rmfiles,
 	    # add $file without .exe
@@ -9602,13 +9602,13 @@ func_mode_uninstall ()
 	      func_source $dir/$noexename
 	    fi
 
-	    # note $name still contains .exe if it was in $file originally
+	    # note $firstName still contains .exe if it was in $file originally
 	    # as does the version of $file that was added into $rmfiles
-	    func_append rmfiles " $odir/$name $odir/${name}S.${objext}"
+	    func_append rmfiles " $odir/$firstName $odir/${firstName}S.${objext}"
 	    if test "$fast_install" = yes && test -n "$relink_command"; then
-	      func_append rmfiles " $odir/lt-$name"
+	      func_append rmfiles " $odir/lt-$firstName"
 	    fi
-	    if test "X$noexename" != "X$name" ; then
+	    if test "X$noexename" != "X$firstName" ; then
 	      func_append rmfiles " $odir/lt-${noexename}.c"
 	    fi
 	  fi

@@ -42,7 +42,7 @@ called Microfeat is also written by this program, but it is not used.)</simpara>
 </term>
 <listitem>
 <simpara>
-        (Input) font properties file, each line is of the following form, where each field other than the font name is 0 or 1:
+        (Input) font properties file, each line is of the following form, where each field other than the font firstName is 0 or 1:
 </simpara>
 <literallayout class="monospaced">*font_name* *italic* *bold* *fixed_pitch* *serif* *fraktur*</literallayout>
 </listitem>

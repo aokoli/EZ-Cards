@@ -52,7 +52,7 @@
  *
  *      Input:  pixd (usual 3 choices: null, == pixs, != pixs)
  *              pixs (1 bpp)
- *              sel name
+ *              sel firstName
  *      Return: pixd
  *
  *  Notes:
@@ -94,7 +94,7 @@ PIX  *pixt1, *pixt2, *pixt3;
  *
  *      Input:  pixd (usual 3 choices: null, == pixs, != pixs)
  *              pixs (1 bpp)
- *              sel name
+ *              sel firstName
  *      Return: pixd
  *
  *  Notes:
