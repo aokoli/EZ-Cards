@@ -53,7 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
      */
 
     // Adding new contact
-    void addContact(Contact contact) {
+    public void addContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

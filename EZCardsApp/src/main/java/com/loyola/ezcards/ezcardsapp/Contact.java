@@ -64,6 +64,8 @@ public class Contact {
 
     public void setImageLocation(String location) { this.imageLocation = location; }
 
+    public String getFullName(){return firstName + " " + lastName;}
+
     private int id;
     private String firstName;
     private String lastName;

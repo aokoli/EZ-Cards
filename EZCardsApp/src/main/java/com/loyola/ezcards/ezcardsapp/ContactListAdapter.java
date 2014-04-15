@@ -45,14 +45,19 @@ public class ContactListAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.linecard, null);
+            //convertView = inflater.inflate(R.layout.linecard, null);
+            convertView = inflater.inflate(R.layout.linecard, arg2, false);
 
         }
 
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
-        tvName.setText(contactListItems.getFirstName());
+        //fix this when save object part is complete! by then, we dont need the textView on the right side!
+        String txtValue = contactListItems.getFullName() + "\n" + contactListItems.getPhoneCell() + "\n" + contactListItems.getCompany1();
+        tvName.setText(txtValue);
+        //tvName.setText(contactListItems.getFirstName());
         TextView tvPhone = (TextView) convertView.findViewById(R.id.tv_phone);
         tvPhone.setText(contactListItems.getPhoneMain());
+
 
         return convertView;
     }

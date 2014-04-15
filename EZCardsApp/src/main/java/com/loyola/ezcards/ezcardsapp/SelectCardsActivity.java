@@ -1,6 +1,7 @@
 package com.loyola.ezcards.ezcardsapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,6 +54,10 @@ public class SelectCardsActivity extends Activity {
             //change the layout to contain title field.
 
             Log.v(tag, "Contact: " + contact.getFirstName() + " " + contact.getLastName());
+            DatabaseHandler db = new DatabaseHandler(this);
+            db.addContact(contact);
+            Intent intent1 = new Intent(this, MyCardsActivity.class);
+            startActivity(intent1);
 //        }
 //        else{
 //
