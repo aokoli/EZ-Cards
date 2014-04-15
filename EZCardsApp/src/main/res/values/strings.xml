@@ -11,5 +11,6 @@
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="title_activity_selectcards">SelectcardsAct</string>
     <string name="listViewTextView"><b></b></string>
+    <string name="callNum"><b>Call 2517764076</b></string>
 
 </resources>

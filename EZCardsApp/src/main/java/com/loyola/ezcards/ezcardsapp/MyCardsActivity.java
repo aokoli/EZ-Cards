@@ -1,8 +1,11 @@
 package com.loyola.ezcards.ezcardsapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ public class MyCardsActivity extends Activity {
         setContentView(R.layout.mycards);
 
         DatabaseHandler db = new DatabaseHandler(this);
-        ListView lvCustomList = (ListView) findViewById(R.id.lv_custom_list);
+        final ListView lvCustomList = (ListView) findViewById(R.id.lv_custom_list);
 
         /**
          * CRUD Operations
@@ -29,16 +32,20 @@ public class MyCardsActivity extends Activity {
 
         // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..");
-        ArrayList<Contact> contacts = db.getAllContacts();
+        final ArrayList<Contact> contacts = db.getAllContacts();
         ContactListAdapter adapter = new ContactListAdapter(MyCardsActivity.this, contacts);
         lvCustomList.setAdapter(adapter);
 
-//        lvCustomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v,
-//                                    int position, long id) {
-//                Toast.makeText(getApplicationContext(),
-//                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        lvCustomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            Intent intent1 = null;
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
+                Object listItem = lvCustomList.getItemAtPosition(position);
+                intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent1);
+            }
+
+        });
+
     }
 }
