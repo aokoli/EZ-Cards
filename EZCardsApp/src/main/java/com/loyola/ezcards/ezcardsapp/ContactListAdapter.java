@@ -45,7 +45,6 @@ public class ContactListAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            //convertView = inflater.inflate(R.layout.linecard, null);
             convertView = inflater.inflate(R.layout.linecard, arg2, false);
 
         }
