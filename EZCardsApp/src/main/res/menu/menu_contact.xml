@@ -8,7 +8,7 @@
         android:title="Edit"
         />
     <item
-        android:id="@+id/Send"
+        android:id="@+id/send"
         android:alphabeticShortcut="s"
         android:title="Send Contact"
         />

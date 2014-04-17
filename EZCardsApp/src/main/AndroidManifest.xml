@@ -28,6 +28,11 @@
             android:name=".MyCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_ocrservice" >
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.Mycards"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
         </activity>
         <activity
             android:name=".SelectCardsActivity"
@@ -38,6 +43,16 @@
             android:name=".ProfileActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_ocrservice" >
+        </activity>
+        <activity
+            android:name=".DeleteContactActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_ocrservice" >
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.DELACT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
         </activity>
     </application>
 

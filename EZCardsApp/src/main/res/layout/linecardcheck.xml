@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:id="@+id/LinearLayout1"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="horizontal" >-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout2"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#1d201b">
+
+
+
+
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <ImageView android:src="@drawable/ic_launcher" android:layout_width="50dp" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:singleLine="false" android:maxLines="3" />
+        <TextView android:id="@+id/tv_name2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/listViewTextView" android:textSize="@dimen/listContactsFontSize" android:textColor="@color/listViewTextColor" android:layout_weight="1.0" />
+        <TextView android:id="@+id/tv_phone2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/listViewTextView" android:textSize="@dimen/listContactsFontSize" android:textColor="@color/listViewTextColor" android:layout_weight="1.0" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/che"/>
+    </LinearLayout>
+
+
+
+
+    <!--<ImageView-->
+    <!--android:id="@+id/icon"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="fill_parent"-->
+
+    <!--android:layout_marginRight="6dip"-->
+    <!--android:contentDescription="TODO"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:src="@drawable/ic_launcher" />-->
+    <!--&lt;!&ndash;android:layout_alignParentBottom="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_alignParentTop="true"&ndash;&gt;-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_name"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+
+    <!--android:text="TextView"-->
+    <!--android:textColor="#000" />-->
+    <!--&lt;!&ndash;android:layout_marginLeft="10dp"&ndash;&gt;-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_phone"-->
+    <!--android:layout_width="match_parent"-->
+
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:text="TextView"-->
+    <!--android:textColor="#000" />-->
+
+</RelativeLayout>
+    <!--</LinearLayout>-->

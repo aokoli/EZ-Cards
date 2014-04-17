@@ -14,20 +14,26 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Created by newbuyer on 4/17/14.
+ */
+public class DeleteContactActivity extends Activity{
+    private  DatabaseHandler db;
+    ContactListAdapterCheck adapter;
+    ArrayList<Contact> contacts;
 
-public class MyCardsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mycards);
+        setContentView(R.layout.mycardcheck);
 
-        DatabaseHandler db = new DatabaseHandler(this);
+       db = new DatabaseHandler(this);
         final ListView lvCustomList = (ListView) findViewById(R.id.lv_custom_list);
 
         // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..");
-        final ArrayList<Contact> contacts = db.getAllContacts();
-        ContactListAdapter adapter = new ContactListAdapter(MyCardsActivity.this, contacts);
+        contacts = db.getAllContacts();
+        adapter = new ContactListAdapterCheck(DeleteContactActivity.this, contacts);
         lvCustomList.setAdapter(adapter);
 
         lvCustomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,19 +53,24 @@ public class MyCardsActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inf = getMenuInflater();
-        inf.inflate(R.menu.menu_contact,menu);
+        inf.inflate(R.menu.menu_delete,menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.delete:
+            case R.id.delete1:
+                for(int i = 0; i < contacts.size(); i++)
 
-                startActivity(new Intent("com.loyola.ezcards.ezcardsapp.DELACT"));
-                return true;
+                {
+                    if (adapter.mCheckStates.get(i) == true) {
+                        db.deleteContact(contacts.get(i));
 
-            case R.id.send:
-                return true;
+                    } else {
+
+                    }
+                }
+                startActivity(new Intent("com.loyola.ezcards.ezcardsapp.Mycards"));
         }
         return false;
     }
