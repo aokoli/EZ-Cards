@@ -227,11 +227,14 @@ public class OCRServiceActivity extends Activity {
 
         Log.v(TAG, "OCRED TEXT: " + recognizedText);
 
-        if ( lang.equalsIgnoreCase("eng") ) {
+        /*if ( lang.equalsIgnoreCase("eng") ) {
             recognizedText = recognizedText.replaceAll("[^a-zA-Z0-9]+", " ");
-        }
+        }*/
 
-        recognizedText = recognizedText.trim();
+        String allText = "";
+
+        allText = allText + "\n" + recognizedText;
+        //recognizedText = recognizedText.trim();
 
         if ( recognizedText.length() != 0 ) {
             _field.setText(_field.getText().toString().length() == 0 ? recognizedText : _field.getText() + " " + recognizedText);
@@ -251,7 +254,7 @@ public class OCRServiceActivity extends Activity {
 	     * Experience Team 650-720-5555 cell
 	     */
         p = Pattern.compile("^([A-Z]([a-z]*|\\.) *){1,2}([A-Z][a-z]+-?)+$", Pattern.MULTILINE);
-        m = p.matcher(recognizedText);
+        m = p.matcher(allText);
 
         if (m.find()) {
             DisplayName = m.group().toString();
@@ -265,7 +268,7 @@ public class OCRServiceActivity extends Activity {
         //p = Pattern.compile("([A-Za-z0-9]+ *@ *[A-Za-z0-9]+(\\.[A-Za-z]{2,4})+)$", Pattern.MULTILINE);
         //p = Pattern.compile("(.+ *@ *.+(\\..{2,4})+)$", Pattern.MULTILINE);
         p = Pattern.compile("([^ \n]+ *@ *.+(\\..{2,4})+)$", Pattern.MULTILINE);
-        m = p.matcher(recognizedText);
+        m = p.matcher(allText);
 
         if (m.find()) {
             emailID = m.group(1);
