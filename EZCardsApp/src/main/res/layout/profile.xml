@@ -1,25 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/buttonCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/callNum" />
-
-    <Button
-        android:id="@+id/buttonSend"
+    android:background="#1d201b"
+    android:clickable="false">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Send" />
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="#1a1a1a">
 
-    <Button
-        android:id="@+id/buttonSendEmail"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="SendEmail" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09">
 
-</LinearLayout>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageView"
+                android:background="@android:drawable/ic_menu_gallery"
+                android:layout_marginLeft="80dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="84dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout3"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Name"
+                    android:id="@+id/profilename1"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="55dp"
+                android:id="@+id/profilename"
+                android:text="@string/name"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="84dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout4"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Title"
+                    android:id="@+id/profiletitle"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="55dp"
+                android:id="@+id/profiletitlefield"
+                android:text="@string/title"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout5"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Company"
+                    android:id="@+id/profilecompany"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp"
+                    android:layout_weight="0.08" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="90dp"
+                android:id="@+id/profilecomapnyfield"
+                android:text="@string/company"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="82dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Phone"
+                    android:id="@+id/textView"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp" />
+
+                <Button
+                    android:id="@+id/buttonCall"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@android:drawable/stat_sys_phone_call"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingBottom="25dp" />
+
+                <Button
+                    android:id="@+id/buttonSend"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@android:drawable/stat_notify_chat"
+                    android:singleLine="false"
+                    android:layout_marginLeft="20dp"
+                    android:paddingBottom="25dp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="55dp"
+                android:id="@+id/profilephonefield"
+                android:layout_below="@+id/profilephone"
+                android:text="@string/callNum"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="84dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout6"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Fax"
+                    android:id="@+id/profilefax"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="55dp"
+                android:id="@+id/profileFaxfield"
+                android:text="@string/fax"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:id="@+id/linearLayout"
+            android:layout_gravity="center_horizontal">
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="84dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout2"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Email"
+                    android:id="@+id/profileEmail"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp" />
+
+                <Button
+                    android:id="@+id/buttonSendEmail"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@android:drawable/ic_dialog_email"
+                    android:layout_marginLeft="110dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="55dp"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/profileEmailField"
+                android:text="@string/email"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:weightSum="1"
+            android:id="@+id/linearLayout7"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="1"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="Address"
+                    android:id="@+id/profileAddress"
+                    android:textSize="18dp"
+                    android:textColor="#e8e8e8"
+                    android:layout_marginLeft="10dp"
+                    android:textIsSelectable="false"
+                    android:paddingBottom="25dp"
+                    android:layout_weight="0.08" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="382dp"
+                android:layout_height="90dp"
+                android:id="@+id/profileAddressfield"
+                android:text="@string/address"
+                android:singleLine="false"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:textColor="#131313"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

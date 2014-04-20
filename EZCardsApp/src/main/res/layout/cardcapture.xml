@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#1d201b"
+    android:background="#1a1a1a"
     android:clickable="false">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1">
-        <RelativeLayout android:id="@+id/relativeLayout" android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <ImageView
-                android:layout_width="400dp"
-                android:layout_height="180dp"
-                android:id="@+id/imgPreview"
-                android:visibility="visible"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="#1a1a1a">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09">
 
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:id="@+id/imageView"
+                android:background="@android:drawable/ic_menu_gallery"
+                android:layout_marginLeft="30dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:id="@+id/FirstNameView"
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,236 +54,347 @@
                 android:layout_below="@+id/imgPreview"
 
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
 
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:id="@+id/LastNameView"
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/LastName"
-                android:layout_below="@+id/FirstName"
-                android:layout_alignLeft="@+id/FirstName"
-                android:layout_alignStart="@+id/FirstName"
+                android:layout_below="@+id/imgPreview"
+
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="First Name"
-                android:id="@+id/FirstNameView"
+                android:text="Title"
+                android:id="@+id/title"
                 android:layout_above="@+id/LastName"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:layout_toLeftOf="@+id/FirstName"
                 android:layout_alignTop="@+id/FirstName"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp" />
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name"
-                android:id="@+id/LastNameView"
-                android:textSize="25dp"
-                android:layout_toLeftOf="@+id/FirstName"
-                android:layout_below="@+id/FirstNameView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/titlefield"
+                android:layout_below="@+id/imgPreview"
+
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Company"
                 android:id="@+id/CompanyView"
-                android:textSize="25dp"
-                android:textIsSelectable="true"
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/LastName"
-                android:layout_toLeftOf="@+id/PhoneMain" />
-
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="none|textPersonName"
-
+                android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/Company1"
-                android:layout_below="@+id/LastName"
-                android:layout_alignRight="@+id/LastName"
-                android:layout_alignEnd="@+id/LastName"
-                android:layout_alignLeft="@+id/LastName"
-                android:layout_alignStart="@+id/LastName" />
+                android:layout_below="@+id/imgPreview"
+
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/comapnyView2"
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="none|textPersonName"
-
+                android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/Company2"
-                android:layout_below="@+id/Company1"
-                android:layout_alignRight="@+id/Company1"
-                android:layout_alignEnd="@+id/Company1"
-                android:layout_alignLeft="@+id/Company1"
-                android:layout_alignStart="@+id/Company1" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="none|textPersonName"
+                android:layout_below="@+id/imgPreview"
 
-                android:ems="10"
-                android:id="@+id/Company3"
-                android:layout_below="@+id/Company2"
-                android:layout_alignRight="@+id/Company2"
-                android:layout_alignEnd="@+id/Company2"
-                android:layout_alignLeft="@+id/Company2"
-                android:layout_alignStart="@+id/Company2" />
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:id="@+id/Phone"
+            android:layout_above="@+id/LastName"
+            android:textSize="20dp"
+            android:layout_toLeftOf="@+id/FirstName"
+            android:layout_alignTop="@+id/FirstName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Main"
+                android:id="@+id/Main"
+                android:layout_above="@+id/LastName"
+                android:textSize="15dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="40dp"
+                android:layout_weight="0.14" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
+
                 android:ems="10"
                 android:id="@+id/PhoneMain"
-                android:layout_below="@+id/Company3"
-                android:layout_marginTop="46dp"
-                android:layout_alignRight="@+id/Company3"
-                android:layout_alignEnd="@+id/Company3"
-                android:layout_alignLeft="@+id/Company3"
-                android:layout_alignStart="@+id/Company3" />
+                android:layout_below="@+id/imgPreview"
 
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Cell"
+                android:id="@+id/CellTV"
+                android:layout_above="@+id/LastName"
+                android:textSize="15dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="40dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="10"
                 android:id="@+id/PhoneCell"
-                android:layout_below="@+id/PhoneMain"
-                android:layout_alignRight="@+id/PhoneMain"
-                android:layout_alignEnd="@+id/PhoneMain"
-                android:layout_alignLeft="@+id/PhoneMain"
-                android:layout_alignStart="@+id/PhoneMain" />
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:text="Phone"
-                android:id="@+id/Phone"
-                android:textSize="25dp"
+                android:layout_below="@+id/imgPreview"
 
-                android:paddingTop="20dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/Company3"
-                android:layout_above="@+id/PhoneCell" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Main"
-                android:id="@+id/Main"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
 
-                android:textSize="20dp"
-                android:layout_toRightOf="@+id/Phone"
-                android:layout_above="@+id/CellTV"
-                android:layout_alignTop="@+id/PhoneMain" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cell"
-                android:id="@+id/CellTV"
-                android:textSize="20dp"
-                android:layout_below="@+id/Phone"
-                android:layout_toRightOf="@+id/Phone"
-                android:layout_toLeftOf="@+id/PhoneMain" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Fax"
                 android:id="@+id/FaxTV"
-                android:textSize="25dp"
-                android:focusable="true"
-                android:inputType="none"
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/Fax"
-                android:layout_toLeftOf="@+id/CellTV" />
-
-
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="10"
                 android:id="@+id/Fax"
-                android:layout_alignRight="@+id/PhoneCell"
-                android:layout_alignEnd="@+id/PhoneCell"
-                android:layout_toRightOf="@+id/CellTV"
-                android:layout_below="@+id/PhoneCell"
-                android:layout_marginTop="15dp" />
+                android:layout_below="@+id/imgPreview"
+
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-
                 android:text="Email"
                 android:id="@+id/EmailTv"
-                android:textSize="25dp"
-
+                android:layout_above="@+id/LastName"
+                android:textSize="20dp"
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-
-                android:layout_below="@+id/Fax"
-                android:paddingTop="20dp"
-                android:layout_marginBottom="25dp" />
-
+                android:layout_marginLeft="10dp" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 android:id="@+id/email"
-                android:layout_alignBottom="@+id/EmailTv"
-                android:layout_alignLeft="@+id/Fax"
-                android:layout_alignStart="@+id/Fax"
-                android:layout_below="@+id/Fax"
+                android:layout_below="@+id/imgPreview"
+
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1"
+            android:layout_marginBottom="20dp">
+
             <TextView
-                android:layout_width="80dp"
-                android:layout_height="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
                 android:text="Address"
                 android:id="@+id/address"
+                android:layout_above="@+id/LastName"
                 android:textSize="20dp"
-
+                android:layout_toLeftOf="@+id/FirstName"
+                android:layout_alignTop="@+id/FirstName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/email"
-                android:paddingTop="20dp" />
-
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left" />
             <EditText
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:inputType="textPostalAddress"
                 android:ems="10"
                 android:id="@+id/addressT"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:layout_below="@+id/address"
+
+                android:layout_below="@+id/imgPreview"
+
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/email" />
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.43" />
+        </LinearLayout>
 
 
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Discard"
-                android:id="@+id/btnDiscard"
-                android:textSize="20dp"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/addressT"
-                android:layout_alignRight="@+id/addressT" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:weightSum="1">
+
+
+
 
             <Button
                 android:layout_width="100dp"
@@ -269,10 +405,24 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toLeftOf="@+id/btnDiscard"
                 android:layout_below="@+id/addressT"
+                android:layout_marginLeft="80dp"
                 />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Discard"
+                android:id="@+id/btnDiscard"
+                android:textSize="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/addressT"
+                android:layout_alignRight="@+id/addressT"
+                android:layout_marginLeft="15dp" />
+
+        </LinearLayout>
 
 
-        </RelativeLayout>
+
+
     </LinearLayout>
 
 </ScrollView>

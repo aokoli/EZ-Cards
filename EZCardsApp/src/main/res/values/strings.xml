@@ -11,6 +11,12 @@
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="title_activity_selectcards">SelectcardsAct</string>
     <string name="listViewTextView"><b></b></string>
-    <string name="callNum"><b>Call 2517764076</b></string>
+    <string name="callNum"><b>2517764076</b></string>
+    <string name="email"><b>lllaskd@yahoo.com</b></string>
+    <string name="name"><b>first last</b></string>
+    <string name="title"><b>title </b></string>
+    <string name="company"><b>company </b></string>
+    <string name="fax"><b>834746348765 </b></string>
+    <string name="address"><b>45 cannon street chicago, il 60611 </b></string>
 
 </resources>

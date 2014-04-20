@@ -7,9 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 
 public class SelectCardsActivity extends Activity {
@@ -46,9 +43,9 @@ public class SelectCardsActivity extends Activity {
             contact.setPhoneCell(((EditText) findViewById(R.id.PhoneCell)).getText().toString());
             contact.setFax(((EditText) findViewById(R.id.Fax)).getText().toString());
             contact.setEmail(((EditText) findViewById(R.id.email)).getText().toString());
-            contact.setTitle(((EditText) findViewById(R.id.Company1)).getText().toString());
-            contact.setCompany1(((EditText) findViewById(R.id.Company2)).getText().toString());
-            contact.setCompany2(((EditText) findViewById(R.id.Company3)).getText().toString());
+            contact.setTitle(((EditText) findViewById(R.id.titlefield)).getText().toString());
+            contact.setCompany1(((EditText) findViewById(R.id.Company1)).getText().toString());
+            contact.setCompany2(((EditText) findViewById(R.id.Company2)).getText().toString());
             contact.setAddress1(((EditText) findViewById(R.id.addressT)).getText().toString());
             //address1 and address2 separate?
             //change the layout to contain title field.
