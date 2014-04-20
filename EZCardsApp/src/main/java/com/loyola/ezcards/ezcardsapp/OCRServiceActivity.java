@@ -48,6 +48,7 @@ public class OCRServiceActivity extends Activity {
     protected Button _button;
     protected ImageView _image;
     protected EditText _field;
+    protected EditText nameField;
     protected EditText phoneField;
     protected EditText emailField;
     protected String _path;
@@ -216,6 +217,7 @@ public class OCRServiceActivity extends Activity {
         baseApi.end();
         setContentView(R.layout.cardcapture);
         _image = (ImageView) findViewById(R.id.imgPreview);
+        nameField = (EditText) findViewById(R.id.FirstName);
         phoneField = (EditText) findViewById(R.id.PhoneMain);
         emailField = (EditText) findViewById(R.id.email);
         _field = (EditText) findViewById(R.id.addressT);
@@ -289,9 +291,11 @@ public class OCRServiceActivity extends Activity {
         //displays results for testing
         String output = new String();
         output = "Name: " + DisplayName + "\n" + "Phone: " + phone + "\n" + "Email: " + emailID + "\n";
+
+        nameField.setText(DisplayName);
         phoneField.setText(phone);
         emailField.setText(emailID);
-        Log.d(TAG, "Input: " + recognizedText);
+        Log.d(TAG, "Input: " + allText);
         Log.d(TAG, output);
 
         // Cycle done.
