@@ -7,8 +7,9 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
+        android:logo="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Translucent" >
+        android:theme="@android:style/Theme.WithActionBar" >
         <activity
             android:name="com.loyola.ezcards.ezcardsapp.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -20,14 +21,18 @@
             </intent-filter>
         </activity>
         <activity
+
             android:name="com.loyola.ezcards.ezcardsapp.OCRServiceActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_ocrservice" >
+            android:logo="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            >
         </activity>
         <activity
             android:name=".MyCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_ocrservice" >
+            android:logo="@drawable/ic_launcher"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.loyola.ezcards.ezcardsapp.Mycards"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -37,17 +42,20 @@
         <activity
             android:name=".SelectCardsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_mycards"  >
+            android:logo="@drawable/ic_launcher"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".ProfileActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_ocrservice" >
+            android:label="@string/app_name"
+            android:logo="@drawable/ic_launcher">
         </activity>
         <activity
             android:name=".DeleteContactActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_ocrservice" >
+            android:logo="@drawable/ic_launcher"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.loyola.ezcards.ezcardsapp.DELACT"/>
                 <category android:name="android.intent.category.DEFAULT"/>
