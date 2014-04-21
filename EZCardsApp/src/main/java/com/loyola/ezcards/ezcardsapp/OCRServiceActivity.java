@@ -216,7 +216,7 @@ public class OCRServiceActivity extends Activity {
 
         baseApi.end();
         setContentView(R.layout.cardcapture);
-        _image = (ImageView) findViewById(R.id.imgPreview);
+        _image = (ImageView) findViewById(R.id.imageView);
         nameField = (EditText) findViewById(R.id.FirstName);
         phoneField = (EditText) findViewById(R.id.PhoneMain);
         emailField = (EditText) findViewById(R.id.email);
