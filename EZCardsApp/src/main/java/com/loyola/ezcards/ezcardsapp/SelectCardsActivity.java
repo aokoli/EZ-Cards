@@ -5,12 +5,18 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,6 +36,8 @@ public class SelectCardsActivity extends Activity {
     private String recognizedText = null;
     private String imagePath = null;
     private Bitmap bitmap;
+    private static final String IMAGE_DIRECTORY_NAME = "EZ Cards";
+    public static final int MEDIA_TYPE_IMAGE = 1;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,28 +159,62 @@ public class SelectCardsActivity extends Activity {
     }
 
     public void onSaveContact(View view){
+
+        // External sdcard location
+        File mediaStorageDir = new File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                IMAGE_DIRECTORY_NAME);
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
+                        + IMAGE_DIRECTORY_NAME + " directory");
+
+            }
+        }
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                + "IMG_" + timeStamp + ".jpg");
+
+        Log.v(tag, "FilePAth " + mediaFile.getPath());
+        //mediaFile.getPath();
+        try {
+            FileOutputStream out = new FileOutputStream(mediaFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         contact = new Contact();
         Log.v(tag, "view: " + view.findViewById(R.id.FirstName));
         //if(Integer.valueOf(contact.getId()) == null){
-            //contact.setId() this must be autoincrement number
-            contact.setFirstName(((EditText)findViewById(R.id.FirstName)).getText().toString());
-            contact.setLastName(((EditText) findViewById(R.id.LastName)).getText().toString());
-            contact.setPhoneMain(((EditText) findViewById(R.id.PhoneMain)).getText().toString());
-            contact.setPhoneCell(((EditText) findViewById(R.id.PhoneCell)).getText().toString());
-            contact.setFax(((EditText) findViewById(R.id.Fax)).getText().toString());
-            contact.setEmail(((EditText) findViewById(R.id.email)).getText().toString());
-            contact.setTitle(((EditText) findViewById(R.id.titlefield)).getText().toString());
-            contact.setCompany1(((EditText) findViewById(R.id.Company1)).getText().toString());
-            contact.setCompany2(((EditText) findViewById(R.id.Company2)).getText().toString());
-            contact.setAddress1(((EditText) findViewById(R.id.addressT)).getText().toString());
-            //address1 and address2 separate?
-            //change the layout to contain title field.
+        //contact.setId() this must be autoincrement number
+        contact.setFirstName(((EditText)findViewById(R.id.FirstName)).getText().toString());
+        contact.setLastName(((EditText) findViewById(R.id.LastName)).getText().toString());
+        contact.setPhoneMain(((EditText) findViewById(R.id.PhoneMain)).getText().toString());
+        contact.setPhoneCell(((EditText) findViewById(R.id.PhoneCell)).getText().toString());
+        contact.setFax(((EditText) findViewById(R.id.Fax)).getText().toString());
+        contact.setEmail(((EditText) findViewById(R.id.email)).getText().toString());
+        contact.setTitle(((EditText) findViewById(R.id.titlefield)).getText().toString());
+        contact.setCompany1(((EditText) findViewById(R.id.Company1)).getText().toString());
+        contact.setCompany2(((EditText) findViewById(R.id.Company2)).getText().toString());
+        contact.setAddress1(((EditText) findViewById(R.id.addressT)).getText().toString());
+//            contact.setImageLocation();
+        //address1 and address2 separate?
+        //change the layout to contain title field.
 
-            Log.v(tag, "Contact: " + contact.getFirstName() + " " + contact.getLastName());
-            DatabaseHandler db = new DatabaseHandler(this);
-            db.addContact(contact);
-            Intent intent1 = new Intent(this, MyCardsActivity.class);
-            startActivity(intent1);
+        Log.v(tag, "Contact: " + contact.getFirstName() + " " + contact.getLastName());
+        DatabaseHandler db = new DatabaseHandler(this);
+        db.addContact(contact);
+        Intent intent1 = new Intent(this, MyCardsActivity.class);
+        startActivity(intent1);
 //        }
 //        else{
 //
