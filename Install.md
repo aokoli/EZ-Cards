@@ -9,8 +9,10 @@ Android SDK 22.6
 JDK 1.7
 Android device, Developer Option- ON
 ```
+Installation and Configuration Guide
 
-git clone git://github.com/X8462/EZ-Cards.git
-  
-Run MainActivity
+Clone the code from the repo: https://github.com/X8462/EZ-Cards.git 
+Create a virtual Android device using Android version 4.4 (KitKat) or higher from the Android Device Manager
+Run the MainActivity class in the new virtual device that was created 
+
 
