@@ -39,7 +39,7 @@
         android:showDividers="end"
         android:visibility="visible"
         android:iconifiedByDefault="false"
-        android:layout_toRightOf="@+id/imageView"/>
+        android:layout_toRightOf="@+id/profileImageView"/>
 
     <ListView
 

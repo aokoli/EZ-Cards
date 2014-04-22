@@ -37,7 +37,7 @@ public class SelectCardsActivity extends Activity {
     private String imagePath = null;
     private Bitmap bitmap;
     private static final String IMAGE_DIRECTORY_NAME = "EZ Cards";
-    public static final int MEDIA_TYPE_IMAGE = 1;
+    File mediaFile;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +73,7 @@ public class SelectCardsActivity extends Activity {
 
     public void fieldMap(){
 
-        _image = (ImageView) findViewById(R.id.imageView);
+        _image = (ImageView) findViewById(R.id.profileImageView);
         nameField = (EditText) findViewById(R.id.FirstName);
         phoneField = (EditText) findViewById(R.id.PhoneMain);
         emailField = (EditText) findViewById(R.id.email);
@@ -158,8 +158,7 @@ public class SelectCardsActivity extends Activity {
         // Cycle done.
     }
 
-    public void onSaveContact(View view){
-
+    public void saveImageToExtStorage(){
         // External sdcard location
         File mediaStorageDir = new File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
@@ -177,7 +176,7 @@ public class SelectCardsActivity extends Activity {
         // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
                 Locale.getDefault()).format(new Date());
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator
+        mediaFile = new File(mediaStorageDir.getPath() + File.separator
                 + "IMG_" + timeStamp + ".jpg");
 
         Log.v(tag, "FilePAth " + mediaFile.getPath());
@@ -191,6 +190,10 @@ public class SelectCardsActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void onSaveContact(View view){
+
+        saveImageToExtStorage();
 
         contact = new Contact();
         Log.v(tag, "view: " + view.findViewById(R.id.FirstName));
@@ -206,7 +209,7 @@ public class SelectCardsActivity extends Activity {
         contact.setCompany1(((EditText) findViewById(R.id.Company1)).getText().toString());
         contact.setCompany2(((EditText) findViewById(R.id.Company2)).getText().toString());
         contact.setAddress1(((EditText) findViewById(R.id.addressT)).getText().toString());
-//            contact.setImageLocation();
+        contact.setImageLocation(mediaFile.getPath());
         //address1 and address2 separate?
         //change the layout to contain title field.
 

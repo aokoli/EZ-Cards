@@ -1,10 +1,13 @@
 package com.loyola.ezcards.ezcardsapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,7 +43,7 @@ public class ContactListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup arg2) {
-        Contact contactListItems = contactList.get(position);
+        Contact contact = contactList.get(position);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
@@ -49,13 +52,19 @@ public class ContactListAdapter extends BaseAdapter {
 
         }
 
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 4;
+        Bitmap bitmap = BitmapFactory.decodeFile(contact.getImageLocation(), options);
+
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.iv_contactImage);
+        imageView.setImageBitmap(bitmap);
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
         //fix this when save object part is complete! by then, we dont need the textView on the right side!
-        String txtValue = contactListItems.getFullName() + "\n" + contactListItems.getPhoneCell() + "\n" + contactListItems.getCompany1();
+        String txtValue = contact.getFullName() + "\n" + contact.getPhoneCell() + "\n" + contact.getCompany1();
         tvName.setText(txtValue);
-        //tvName.setText(contactListItems.getFirstName());
+        //tvName.setText(contact.getFirstName());
         TextView tvPhone = (TextView) convertView.findViewById(R.id.tv_phone);
-        tvPhone.setText(contactListItems.getPhoneMain());
+        tvPhone.setText(contact.getPhoneMain());
 
 
         return convertView;
