@@ -36,10 +36,6 @@ public class MyCardsActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                 Contact c = (Contact) lvCustomList.getItemAtPosition(position);
-                //Toast.makeText(getApplicationContext(), "Clicked position: " + c.getId() + " and ContactId : " + c.getFirstName(), Toast.LENGTH_LONG).show();
-
-                //Object listItem = lvCustomList.getItemAtPosition(position);
-                //Toast.makeText(getApplicationContext(), "Clicked position: " + position + " and ContactId : " + arg, Toast.LENGTH_LONG).show();
                 intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
                 intent1.putExtra("contact", c);
 
@@ -54,22 +50,22 @@ public class MyCardsActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inf = getMenuInflater();
-        inf.inflate(R.menu.menu_contact,menu);
+        inf.inflate(R.menu.menu_mycards,menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.add:
+            case R.id.addContact:
                 startActivity(new Intent("com.loyola.ezcards.ezcardsapp.SELECT"));
                 return true;
 
-            case R.id.delete:
+            case R.id.SelectContacts:
 
                 startActivity(new Intent("com.loyola.ezcards.ezcardsapp.DELACT"));
                 return true;
 
-            case R.id.menu:
+            case R.id.mainMenu:
                 startActivity(new Intent("android.intent.action.MAIN" ));
                 return true;
         }

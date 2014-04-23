@@ -3,12 +3,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/delete1"
+        android:id="@+id/deleteSelectedContacts"
         android:alphabeticShortcut="s"
         android:title="Delete contact(s)"
         />
     <item
-        android:id="@+id/send"
+        android:id="@+id/backToMyCards"
         android:alphabeticShortcut="s"
         android:title="Back to List"
         />

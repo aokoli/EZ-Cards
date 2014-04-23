@@ -19,9 +19,6 @@ import android.widget.ImageView;
 
 import java.io.File;
 
-/**
- * Created by newbuyer on 4/22/14.
- */
 public class UpdateContactActivity extends Activity{
     Contact contact;
     private static Context mContext;
@@ -81,6 +78,8 @@ public class UpdateContactActivity extends Activity{
                         mActionMode = startActionMode(mActionModeCallback);
                         view.setSelected(true);
 
+                        //getImagelocation and create an image for the selected Image
+
                     }
                 });
 
@@ -105,7 +104,7 @@ public class UpdateContactActivity extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inf = getMenuInflater();
-        inf.inflate(R.menu.menu_update_contact,menu);
+        inf.inflate(R.menu.menu_updateoption,menu);
         return true;
     }
 
@@ -142,14 +141,14 @@ public class UpdateContactActivity extends Activity{
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             // Inflate a menu resource providing context menu items
             MenuInflater inflater = mode.getMenuInflater();
-            inflater.inflate(R.menu.menu_contact, menu);
+            inflater.inflate(R.menu.menu_mycards, menu);
             updateMenuTitles(menu);
             return true;
         }
 
         private void updateMenuTitles(Menu menu) {
-            MenuItem edit = menu.findItem(R.id.delete);
-            MenuItem contacts = menu.findItem(R.id.menu);
+            MenuItem edit = menu.findItem(R.id.SelectContacts);
+            MenuItem contacts = menu.findItem(R.id.mainMenu);
             edit.setTitle("Take a picture");
             contacts.setTitle("Browse your pictures");
 
@@ -166,18 +165,22 @@ public class UpdateContactActivity extends Activity{
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.delete:
+                case R.id.SelectContacts:
                     final Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, setImageUri());
+
+                    //Complete this
+
+
                     startActivityForResult(intent, TAKE_PHOTO_CODE);
                     mode.finish(); // Action picked, so close the CAB
                     return true;
-                case R.id.menu:
-//                    startActivity(new Intent("com.loyola.ezcards.ezcardsapp.ORC" ));
-//                    return true;
-
+                case R.id.mainMenu:
                     Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     i.putExtra(MediaStore.EXTRA_OUTPUT, setImageUri());
+
+
+                    //pick from gallery.. get location.. etc
                     startActivityForResult(i, PICK_FROM_GALLERY);
                     return true;
                 default:

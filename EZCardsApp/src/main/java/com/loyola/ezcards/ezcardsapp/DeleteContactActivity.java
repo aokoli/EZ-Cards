@@ -53,13 +53,13 @@ public class DeleteContactActivity extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inf = getMenuInflater();
-        inf.inflate(R.menu.menu_delete,menu);
+        inf.inflate(R.menu.menu_deleteoption,menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.delete1:
+            case R.id.deleteSelectedContacts:
                 for(int i = 0; i < contacts.size(); i++)
 
                 {

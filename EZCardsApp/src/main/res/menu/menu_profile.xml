@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/editProfile"
+        android:alphabeticShortcut="s"
+        android:title="Edit Contact"
+        />
+    <item
+        android:id="@+id/listContacts"
+        android:alphabeticShortcut="s"
+        android:title="All Contacts"
+        />
+    <item
+        android:id="@+id/createVcard"
+        android:alphabeticShortcut="s"
+        android:title="Create V-Card"
+        />
+</menu>

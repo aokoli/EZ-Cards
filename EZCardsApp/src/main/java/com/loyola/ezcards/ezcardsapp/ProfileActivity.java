@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 
 public class ProfileActivity extends Activity{
 
@@ -39,11 +41,6 @@ public class ProfileActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-//        Bundle b = getIntent().getExtras();
-//        value= b.getInt("contactId");
-//        Log.v(tag, "Value" + value);
-//        db = new DatabaseHandler(this);
-//        contact = db.getContact(2);
         contact = (Contact) getIntent().getSerializableExtra("contact");
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 4;
@@ -188,34 +185,48 @@ public class ProfileActivity extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inf = getMenuInflater();
-        inf.inflate(R.menu.menu_update_contact,menu);
-        updateMenuTitles(menu);
+        inf.inflate(R.menu.menu_profile,menu);
+       // updateMenuTitles(menu);
         return true;
     }
 
-    private void updateMenuTitles(Menu menu) {
-        MenuItem edit = menu.findItem(R.id.done);
-        MenuItem contacts = menu.findItem(R.id.cancel);
-        edit.setTitle("edit");
-        contacts.setTitle("All contacts");
-
-
-    }
+//    private void updateMenuTitles(Menu menu) {
+//        MenuItem edit = menu.findItem(R.id.editProfile);
+//        MenuItem contacts = menu.findItem(R.id.listContacts);
+//        edit.setTitle("edit");
+//        contacts.setTitle("All contacts");
+//
+//
+//    }
 
     public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
-            case R.id.done:
+            case R.id.editProfile:
                 Intent intent = new Intent("com.loyola.ezcards.ezcardsapp.UPDATE");
                 intent.putExtra("contact", contact);
                 startActivity(intent);
                 return true;
 
-            case R.id.cancel:
+            case R.id.listContacts:
                 startActivity(new Intent("com.loyola.ezcards.ezcardsapp.Mycards"));
+                return true;
+
+            case R.id.createVcard:
+                createVCARD();
                 return true;
         }
         return false;
+
+    }
+
+    public void createVCARD(){
+        EZVCard ezvCard = new EZVCard();
+        File vcardFile = ezvCard.create(contact);
+
+        Toast.makeText(getApplicationContext(),
+                "VCard Created for " + vcardFile.getName() + " at " + vcardFile.getPath(),
+                Toast.LENGTH_LONG).show();
 
     }
 }

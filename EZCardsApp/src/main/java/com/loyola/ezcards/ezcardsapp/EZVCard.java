@@ -7,6 +7,7 @@ package com.loyola.ezcards.ezcardsapp;
 
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import a_vcard.android.provider.Contacts;
 import a_vcard.android.syncml.pim.PropertyNode;
@@ -29,55 +30,60 @@ import java.util.List;
 public class EZVCard {
 
     private static final String FILE_DIRECTORY_NAME = "EZ VCARDS";
-    public void create(Contact ezContact) throws Exception {
+    private static final String tag = "EZVCARDS";
+    public static final String EZ_PATH = Environment
+            .getExternalStorageDirectory().toString();
 
-        File ezFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), FILE_DIRECTORY_NAME);
+    public File create(Contact ezContact) {
+
+        File ezFile = new File(EZ_PATH, FILE_DIRECTORY_NAME);
 
         // Create the storage directory if it does not exist
         if (!ezFile.exists()) {
             if (!ezFile.mkdirs()) {
-                Log.d(FILE_DIRECTORY_NAME, "Oops! Failed to create "
+                Log.v(FILE_DIRECTORY_NAME, "Oops! Failed to create "
                         + FILE_DIRECTORY_NAME + " directory");
 
             }
         }
 
         File myFile = new File(ezFile.getPath() + File.separator
-                + "VCard-" + ezContact.getId() + ".vcf");
+                + "VCard-" + ezContact.getId() + ezContact.getLastName() + ".vcf");
 
+        try{
 
+            OutputStreamWriter writer = new OutputStreamWriter(
+                    new FileOutputStream(myFile), "UTF-8");
 
-//        OutputStreamWriter writer = new OutputStreamWriter(
-//                new FileOutputStream("example.vcf"), "UTF-8");
+            VCardComposer composer = new VCardComposer();
 
-        OutputStreamWriter writer = new OutputStreamWriter(
-                new FileOutputStream(myFile), "UTF-8");
+            //create a contact
+            ContactStruct contact1 = new ContactStruct();
+            contact1.name = ezContact.getFirstName() + " " + ezContact.getLastName();
+            contact1.addPhone(Contacts.Phones.TYPE_WORK, ezContact.getPhoneMain(), null, true);
+            contact1.addPhone(Contacts.Phones.TYPE_MOBILE, ezContact.getPhoneCell(), null, false);
+            contact1.addPhone(Contacts.Phones.TYPE_FAX_HOME, ezContact.getFax(), null, false);
+            contact1.addOrganization(Contacts.OrganizationColumns.TYPE_WORK, ezContact.getCompany1() + " " + ezContact.getCompany2(), ezContact.getTitle(), true);
+            contact1.addContactmethod(Contacts.KIND_EMAIL, Contacts.ContactMethods.MOBILE_EMAIL_TYPE_INDEX, ezContact.getEmail(), null, true);
 
-        VCardComposer composer = new VCardComposer();
+            //create vCard representation
+            String vcardString = composer.createVCard(contact1, VCardComposer.VERSION_VCARD30_INT);
 
-        //create a contact
-        ContactStruct contact1 = new ContactStruct();
-        contact1.name = ezContact.getFirstName() + " " + ezContact.getLastName();
-        contact1.addPhone(Contacts.Phones.TYPE_WORK, ezContact.getPhoneMain(), null, true);
-        contact1.addPhone(Contacts.Phones.TYPE_MOBILE, ezContact.getPhoneCell(), null, false);
-        contact1.addPhone(Contacts.Phones.TYPE_FAX_HOME, ezContact.getFax(), null, false);
-        contact1.addOrganization(Contacts.OrganizationColumns.TYPE_WORK, ezContact.getCompany1() + " " + ezContact.getCompany2(), ezContact.getTitle(), true);
-        contact1.addContactmethod(Contacts.KIND_EMAIL, Contacts.ContactMethods.MOBILE_EMAIL_TYPE_INDEX, ezContact.getEmail(), null, true);
+            //write vCard to the output stream
+            writer.write(vcardString);
+            writer.write("\n"); //add empty lines between contacts
 
-        //create vCard representation
-        String vcardString = composer.createVCard(contact1, VCardComposer.VERSION_VCARD30_INT);
+            writer.close();
+            //return myFile;
+        }catch (Exception e){
+           Log.v(tag, "Exception: " + e);
+            return null;
+        }
 
-        //write vCard to the output stream
-        writer.write(vcardString);
-        writer.write("\n"); //add empty lines between contacts
-
-        // repeat for other contacts
-        // ...
-
-        writer.close();
+        return myFile;
     }
 
-    public Contact read(File vcfFile) throws Exception{
+    public Contact read(File vcfFile){
 
         VCardParser parser = new VCardParser();
         VDataBuilder builder = new VDataBuilder();
@@ -86,25 +92,30 @@ public class EZVCard {
 
         File readFile = vcfFile;
 
-        BufferedReader EZReader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(readFile), "UTF-8"));
+        try{
 
-        //read whole file to string
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(file), "UTF-8"));
+            FileInputStream stream = new FileInputStream(readFile);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    stream, "UTF-8"));
 
-        String vcardString = "";
-        String line;
-        while ((line = reader.readLine()) != null) {
-            vcardString += line + "\n";
+            String vcardString = "";
+            String line;
+            while ((line = reader.readLine()) != null) {
+                vcardString += line + "\n";
+                Log.v(tag, "VCardString: " + vcardString);
+            }
+            reader.close();
+
+            //parse the string
+            boolean parsed = parser.parse(vcardString, "UTF-8", builder);
+            if (!parsed) {
+                throw new VCardException("Could not parse vCard file: " + file);
+            }
+        }catch(Exception e){
+            Log.v(tag, "Exception: " + e);
+            return null;
         }
-        reader.close();
 
-        //parse the string
-        boolean parsed = parser.parse(vcardString, "UTF-8", builder);
-        if (!parsed) {
-            throw new VCardException("Could not parse vCard file: " + file);
-        }
 
         //get all parsed contacts
         List<VNode> pimContacts = builder.vNodeList;
@@ -125,7 +136,7 @@ public class EZVCard {
 
             //similarly for other properties (N, ORG, TEL, etc)
             //...
-
+            Log.v(tag, "name?? : " + name);
             System.out.println("Found contact: " + name);
         }
         //must return a contact
