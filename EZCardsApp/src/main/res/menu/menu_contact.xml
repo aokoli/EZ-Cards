@@ -3,14 +3,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/add"
+        android:alphabeticShortcut="s"
+        android:title="Add a contact"
+        />
+
+    <item
         android:id="@+id/delete"
         android:alphabeticShortcut="s"
-        android:title="Edit"
+        android:title="Delete contact"
         />
+
     <item
-        android:id="@+id/send"
+        android:id="@+id/menu"
         android:alphabeticShortcut="s"
-        android:title="Send Contact"
+        android:title="Back to Menu"
         />
 
 </menu>

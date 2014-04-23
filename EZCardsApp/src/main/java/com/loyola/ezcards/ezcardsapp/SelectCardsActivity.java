@@ -213,9 +213,10 @@ public class SelectCardsActivity extends Activity {
         //address1 and address2 separate?
         //change the layout to contain title field.
 
-        Log.v(tag, "Contact: " + contact.getFirstName() + " " + contact.getLastName());
+        Log.v(tag, "Contact: " + contact.getFirstName() + " " + contact.getLastName()+" "+contact.getId());
         DatabaseHandler db = new DatabaseHandler(this);
         db.addContact(contact);
+
         Intent intent1 = new Intent(this, MyCardsActivity.class);
         startActivity(intent1);
 //        }

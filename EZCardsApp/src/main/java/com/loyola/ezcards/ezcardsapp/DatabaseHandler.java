@@ -110,14 +110,40 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
-                        KEY_FNAME, KEY_PH_MAIN}, KEY_ID + "=?",
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[] {
+                        KEY_ID,
+                        KEY_FNAME,
+                        KEY_LNAME,
+                        KEY_PH_MAIN,
+                        KEY_PH_CELL,
+                        KEY_FAX,
+                        KEY_EMAIL,
+                        KEY_COMPANY1,
+                        KEY_COMPANY2,
+                        KEY_TITLE,
+                        KEY_ADDRESS1,
+                        KEY_ADDRESS2,
+                        KEY_IMG_LOCN
+                        }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2));
+        Contact contact = new Contact();
+        contact.setId(Integer.parseInt(cursor.getString(0)));
+        contact.setFirstName(cursor.getString(1));
+        contact.setLastName(cursor.getString(2));
+        contact.setPhoneMain(cursor.getString(3));
+        contact.setPhoneCell(cursor.getString(4));
+        contact.setFax(cursor.getString(5));
+        contact.setEmail(cursor.getString(6));
+        contact.setCompany1(cursor.getString(7));
+        contact.setCompany2(cursor.getString(8));
+        contact.setTitle(cursor.getString(9));
+        contact.setAddress1(cursor.getString(10));
+        contact.setAddress2(cursor.getString(11));
+        contact.setImageLocation(cursor.getString(12));
+
         // return contact
         return contact;
     }
@@ -128,8 +154,19 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+
         values.put(KEY_FNAME, contact.getFirstName());
+        values.put(KEY_LNAME, contact.getLastName());
         values.put(KEY_PH_MAIN, contact.getPhoneMain());
+        values.put(KEY_PH_CELL, contact.getPhoneCell());
+        values.put(KEY_FAX, contact.getFax());
+        values.put(KEY_EMAIL, contact.getEmail());
+        values.put(KEY_COMPANY1, contact.getCompany1());
+        values.put(KEY_COMPANY2, contact.getCompany2());
+        values.put(KEY_TITLE, contact.getTitle());
+        values.put(KEY_ADDRESS1, contact.getAddress1());
+        values.put(KEY_ADDRESS2, contact.getAddress2());
+        values.put(KEY_IMG_LOCN, contact.getImageLocation());
 
         // updating row
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",

@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by newbuyer on 4/17/14.
  */
 public class DeleteContactActivity extends Activity{
-    private  DatabaseHandler db;
+    private DatabaseHandler db;
     ContactListAdapterCheck adapter;
     ArrayList<Contact> contacts;
 

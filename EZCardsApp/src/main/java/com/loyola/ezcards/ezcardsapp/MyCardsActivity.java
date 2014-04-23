@@ -10,18 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
 public class MyCardsActivity extends Activity {
+    DatabaseHandler db;
+    private final  static String tag = "Mycardactivity";
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mycards);
 
-        DatabaseHandler db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
         final ListView lvCustomList = (ListView) findViewById(R.id.lv_custom_list);
 
         // Reading all contacts
@@ -34,10 +35,16 @@ public class MyCardsActivity extends Activity {
             Intent intent1 = null;
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
+                Contact c = (Contact) lvCustomList.getItemAtPosition(position);
+                //Toast.makeText(getApplicationContext(), "Clicked position: " + c.getId() + " and ContactId : " + c.getFirstName(), Toast.LENGTH_LONG).show();
+
                 //Object listItem = lvCustomList.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(), "Clicked position: " + position + " and ContactId : " + arg, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Clicked position: " + position + " and ContactId : " + arg, Toast.LENGTH_LONG).show();
                 intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent1.putExtra("contact", c);
+
                 startActivity(intent1);
+
             }
 
         });
@@ -53,12 +60,17 @@ public class MyCardsActivity extends Activity {
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
+            case R.id.add:
+                startActivity(new Intent("com.loyola.ezcards.ezcardsapp.SELECT"));
+                return true;
+
             case R.id.delete:
 
                 startActivity(new Intent("com.loyola.ezcards.ezcardsapp.DELACT"));
                 return true;
 
-            case R.id.send:
+            case R.id.menu:
+                startActivity(new Intent("android.intent.action.MAIN" ));
                 return true;
         }
         return false;
