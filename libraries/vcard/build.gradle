@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+    compile files('lib/Commons_Codec_1.4/commons-codec-1.4.jar')
+    compile files('lib/junit/junit-3.8.2.jar')
+}
+
+
+sourceSets {
+    main {
+
+        java.srcDirs = ['src']
+
+    }
+    test {
+
+        java.srcDirs = ['test']
+
+    }
+
+}

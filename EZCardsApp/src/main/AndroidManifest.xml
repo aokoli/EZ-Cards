@@ -27,6 +27,11 @@
             android:logo="@drawable/ic_launcher"
             android:label="@string/app_name"
             >
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.ORC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
         </activity>
         <activity
             android:name=".MyCardsActivity"
@@ -44,20 +49,43 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:logo="@drawable/ic_launcher"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.SELECT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
         </activity>
         <activity
             android:name=".ProfileActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:logo="@drawable/ic_launcher">
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.PROF"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
         </activity>
         <activity
             android:name=".DeleteContactActivity"
+            android:noHistory="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:logo="@drawable/ic_launcher"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.loyola.ezcards.ezcardsapp.DELACT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UpdateContactActivity"
+            android:noHistory="true"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:logo="@drawable/ic_launcher"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.loyola.ezcards.ezcardsapp.UPDATE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
 
             </intent-filter>

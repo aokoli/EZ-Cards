@@ -1,2 +1,3 @@
 include ':EZCardsApp'
 include ':libraries:tess-two'
+include ':libraries:vcard'
